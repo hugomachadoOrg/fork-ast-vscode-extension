@@ -62,13 +62,13 @@ jobs:
           
           echo "Nightly version ${{env.JS_NIGHTLY_VERSION_NAME}}"
           
-      - name: Install dependencies
-        run: npm install
+      #- name: Install dependencies
+      #  run: npm install
         
       - name: Install js wrapper nightly version
         if: github.event_name == 'push' && env.JS_NIGHTLY_VERSION_NAME != ''
         run: |
-          echo ${env.JS_NIGHTLY_VERSION_NAME}
+          echo ${{env.JS_NIGHTLY_VERSION_NAME}}
           
 
       #- name: Install VSCE
