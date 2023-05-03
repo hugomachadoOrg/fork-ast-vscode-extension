@@ -56,6 +56,15 @@ jobs:
       - run: echo "event name is:" ${{ github.event_name }}
       - run: echo "event type is:" ${{ github.event.action }}
 
+      - name: Get JS Wrapper nightly release
+        if: github.event_name == 'push'
+        run: |
+          echo "Let's get js nightly version..."
+
+
+
+
+
       #- name: Install dependencies
       #  run: npm install
 
