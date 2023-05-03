@@ -72,6 +72,8 @@ jobs:
         run: |
           npm install @checkmarxdev/ast-cli-javascript-wrapper@${{env.JS_NIGHTLY_VERSION_NAME}}
           
+          npm list
+          
 
       #- name: Install VSCE
       #  run: npm install -g vsce
