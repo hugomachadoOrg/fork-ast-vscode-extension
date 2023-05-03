@@ -14,7 +14,7 @@
   },
   "icon": "media/icon.png",
   "engines": {
-    "vscode": "^1.56.2"
+    "vscode": "^1.63.0"
   },
   "extensionKind": [
     "workspace"

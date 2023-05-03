@@ -3,11 +3,6 @@ name: VSCode Release
 on:
   workflow_call:
     inputs:
-      cliTag:
-        description: 'CLI tag name'
-        required: false
-        type: string
-        default: 2.0.0-nightly
       jsTag:
         description: 'JS Wrapper tag name'
         required: false
@@ -38,23 +33,31 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
+
+      # CHECKOUT PROJECT
       - name: Checkout
         uses: actions/checkout@v3.5.2
-        
+
+      # GIT CONFIGURATION
+      - run: |
+          git config user.name vscode-releases
+          git config user.email vscode-releases@github.com
+
+      # AUTHENTICATE TO GITHUB PACKAGE REGISTRY
+      - name: Authenticate with GitHub package registry
+        run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > ~/.npmrc
+
+      # SETUP NODE
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 14
-          
-      - run: | 
-          git config user.name vscode-releases
-          git config user.email vscode-releases@github.com
 
-      - name: Authenticate with GitHub package registry
-        run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > ~/.npmrc
+      - run: echo "event name is:" ${{ github.event_name }}
+      - run: echo "event type is:" ${{ github.event.action }}
 
-      - name: Install dependencies
-        run: npm install
+      #- name: Install dependencies
+      #  run: npm install
 
       #- name: Install VSCE
       #  run: npm install -g vsce
@@ -62,9 +65,9 @@ jobs:
       #- name: Package .vsix file
       #  run: vsce package ${{ env.RELEASE_VERSION }}
       
-      - name: Create Release
-        uses: softprops/action-gh-release@v1
-        with:
-          tag_name: 2.0.30
-          generate_release_notes: true
-          files: ast-results-2.0.30.vsix
+      #- name: Create Release
+      #  uses: softprops/action-gh-release@v1
+      #  with:
+      #    tag_name: 2.0.30
+      #    generate_release_notes: true
+      #    files: ast-results-2.0.30.vsix
