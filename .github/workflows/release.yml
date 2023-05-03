@@ -58,14 +58,16 @@ jobs:
         run: |
           echo "Let's get js nightly version..."
 
-          JS_NIGHTLY_NAME=$(curl -L -H "Accept: application/vnd.github+json" -H "Authorization: Bearer ${{ secrets.PERSONAL_ACCESS_TOKEN }}" -H "X-GitHub-Api-Version: 2022-11-28" https://api.github.com/orgs/CheckmarxDev/packages/npm/ast-cli-javascript-wrapper/versions | jq '.[]|select(.name | contains("-nightly.0"))|.name')
+          JS_NIGHTLY_VERSION_NAME=$(curl -L -H "Accept: application/vnd.github+json" -H "Authorization: Bearer ${{ secrets.PERSONAL_ACCESS_TOKEN }}" -H "X-GitHub-Api-Version: 2022-11-28" https://api.github.com/orgs/CheckmarxDev/packages/npm/ast-cli-javascript-wrapper/versions | jq '.[]|select(.name | contains("-nightly.0"))|.name') >> $GITHUB_ENV
 
-          echo ${JS_NIGHTLY_NAME}
-
-
-
-      #- name: Install dependencies
-      #  run: npm install
+      - name: Install dependencies
+        run: npm install
+        
+      - name: Install js wrapper nightly version
+        if: github.event_name == 'push' && env.JS_NIGHTLY_VERSION_NAME != ''
+        run: |
+          echo ${env.JS_NIGHTLY_VERSION_NAME}
+          
 
       #- name: Install VSCE
       #  run: npm install -g vsce
