@@ -60,24 +60,17 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 14
-          
-      - name: get-npm-version
-        id: package-version
-        uses: martinbeentjes/npm-get-version-action@v1.3.1
-        
-      - name: Print npm version from package json
-        run: echo CURRENT VERSION = ${{ steps.package-version.outputs.current-version}}
 
       - name: Get JS Wrapper nightly release
-        if: github.event_name == 'push'
+        if: inputs.dev == true && inputs.jsTag != ''
         run: |
           echo "Getting js nightly version..."
 
-          NIGHTLY_VERSION_NAME=$(curl -L -H "Accept: application/vnd.github+json" -H "Authorization: Bearer ${{ secrets.PERSONAL_ACCESS_TOKEN }}" -H "X-GitHub-Api-Version: 2022-11-28" https://api.github.com/orgs/CheckmarxDev/packages/npm/ast-cli-javascript-wrapper/versions | jq '.[]|select(.name | contains("-nightly.0"))|.name')
+          JS_VERSION_NAME=$(curl -L -H "Accept: application/vnd.github+json" -H "Authorization: Bearer ${{ secrets.PERSONAL_ACCESS_TOKEN }}" -H "X-GitHub-Api-Version: 2022-11-28" https://api.github.com/orgs/CheckmarxDev/packages/npm/ast-cli-javascript-wrapper/versions | jq '.[]|select(.name | contains("-${{inputs.jsTag}}.0"))|.name')
           
-          echo "Nightly version = " ${NIGHTLY_VERSION_NAME}
+          echo "Nightly version = " ${JS_VERSION_NAME}
           
-          echo "JS_NIGHTLY_VERSION_NAME=${NIGHTLY_VERSION_NAME}" >> $GITHUB_ENV
+          echo "JS_VERSION_NAME=${JS_VERSION_NAME}" >> $GITHUB_ENV
           
       # GET TAG NAME
       - name: Generate Tag name
@@ -87,23 +80,14 @@ jobs:
           else
             echo "TAG_NAME=$(npm version patch)" >> $GITHUB_ENV
           fi
-          
-          echo Next tag name = ${TAG_NAME}
-          
-      - name: get-npm-version
-        id: package-versionn
-        uses: martinbeentjes/npm-get-version-action@v1.3.1
-        
-      - name: Print npm version from package json
-        run: echo CURRENT VERSION = ${{ steps.package-versionn.outputs.current-version}}
         
       - name: Install dependencies
         run: npm install
         
       - name: Install js wrapper nightly version
-        if: github.event_name == 'push' && env.JS_NIGHTLY_VERSION_NAME != ''
+        if: github.event_name == 'push' && env.JS_VERSION_NAME != ''
         run: |
-          npm install @checkmarxdev/ast-cli-javascript-wrapper@${{env.JS_NIGHTLY_VERSION_NAME}}
+          npm install @checkmarxdev/ast-cli-javascript-wrapper@${{env.JS_VERSION_NAME}}
           
           npm list
           
