@@ -53,37 +53,43 @@ jobs:
         with:
           node-version: 14
 
-      - name: Get JS Wrapper nightly release
-        if: github.event_name == 'push'
-        run: |
-          echo "Getting js nightly version..."
+      #- name: Get JS Wrapper nightly release
+      #  if: github.event_name == 'push'
+      #  run: |
+      #    echo "Getting js nightly version..."
 
-          NIGHTLY_VERSION_NAME=$(curl -L -H "Accept: application/vnd.github+json" -H "Authorization: Bearer ${{ secrets.PERSONAL_ACCESS_TOKEN }}" -H "X-GitHub-Api-Version: 2022-11-28" https://api.github.com/orgs/CheckmarxDev/packages/npm/ast-cli-javascript-wrapper/versions | jq '.[]|select(.name | contains("-nightly.0"))|.name')
+      #    NIGHTLY_VERSION_NAME=$(curl -L -H "Accept: application/vnd.github+json" -H "Authorization: Bearer ${{ secrets.PERSONAL_ACCESS_TOKEN }}" -H "X-GitHub-Api-Version: 2022-11-28" https://api.github.com/orgs/CheckmarxDev/packages/npm/ast-cli-javascript-wrapper/versions | jq '.[]|select(.name | contains("-nightly.0"))|.name')
           
-          echo "Nightly version = " ${NIGHTLY_VERSION_NAME}
+      #    echo "Nightly version = " ${NIGHTLY_VERSION_NAME}
           
-          echo "JS_NIGHTLY_VERSION_NAME=${NIGHTLY_VERSION_NAME}" >> $GITHUB_ENV
+      #    echo "JS_NIGHTLY_VERSION_NAME=${NIGHTLY_VERSION_NAME}" >> $GITHUB_ENV
           
-      #- name: Install dependencies
-      #  run: npm install
+      - name: Install dependencies
+        run: npm install
         
-      - name: Install js wrapper nightly version
-        if: github.event_name == 'push' && env.JS_NIGHTLY_VERSION_NAME != ''
-        run: |
-          npm install @checkmarxdev/ast-cli-javascript-wrapper@${{env.JS_NIGHTLY_VERSION_NAME}}
+      #- name: Install js wrapper nightly version
+      #  if: github.event_name == 'push' && env.JS_NIGHTLY_VERSION_NAME != ''
+      #  run: |
+      #    npm install @checkmarxdev/ast-cli-javascript-wrapper@${{env.JS_NIGHTLY_VERSION_NAME}}
           
-          npm list
+      #    npm list
           
 
-      #- name: Install VSCE
-      #  run: npm install -g vsce
+      - name: Install VSCE
+        run: npm install -g vsce
 
-      #- name: Package .vsix file
-      #  run: vsce package ${{ env.RELEASE_VERSION }}
+      - name: Package .vsix file
+        run: vsce package 2.0.40
       
-      #- name: Create Release
-      #  uses: softprops/action-gh-release@v1
-      #  with:
-      #    tag_name: 2.0.30
-      #    generate_release_notes: true
-      #    files: ast-results-2.0.30.vsix
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: 2.0.40
+          generate_release_notes: true
+          files: ast-results-2.0.40.vsix
+      
+      - name: Publish
+        env:
+          MARKET_TOKEN: ${{ secrets.MARKET_TOKEN }}
+        if: env.MARKET_TOKEN != null
+        run: vsce publish -p ${{ env.MARKET_TOKEN }}
