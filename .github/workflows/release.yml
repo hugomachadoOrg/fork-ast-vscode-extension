@@ -129,7 +129,7 @@ jobs:
         with:
           tag_name: ${{env.TAG_NAME}}
           generate_release_notes: true
-          files: ast-results-${{env.TAG_NAME}}.vsix
+          files: fork-ast-results-${{env.TAG_NAME:1}}.vsix
           prerelease: ${{ inputs.dev }}
       
       #- name: Publish
