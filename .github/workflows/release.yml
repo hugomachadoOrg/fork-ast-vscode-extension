@@ -118,6 +118,9 @@ jobs:
           else
             vsce package
           fi
+          
+          TAG_NAME=${{env.TAG_NAME}}
+          echo "VSIX_TAG_NAME=${TAG_NAME:1}" >> $GITHUB_ENV
         
       # PUSH TAGS IF IT IS A RELEASE
       - name: Push tag if release
@@ -129,7 +132,7 @@ jobs:
         with:
           tag_name: ${{env.TAG_NAME}}
           generate_release_notes: true
-          files: fork-ast-results-${{env.TAG_NAME:1}}.vsix
+          files: fork-ast-results-${{env.VSIX_TAG_NAME}}.vsix
           prerelease: ${{ inputs.dev }}
       
       #- name: Publish
