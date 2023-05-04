@@ -88,8 +88,8 @@ jobs:
           generate_release_notes: true
           files: ast-results-2.0.24.vsix
       
-      - name: Publish
-        env:
-          MARKET_TOKEN: ${{ secrets.MARKET_TOKEN }}
-        if: env.MARKET_TOKEN != null
-        run: vsce publish -p ${{ env.MARKET_TOKEN }}
+      #- name: Publish
+      #  env:
+      #    MARKET_TOKEN: ${{ secrets.MARKET_TOKEN }}
+      #  if: env.MARKET_TOKEN != null
+      #  run: vsce publish -p ${{ env.MARKET_TOKEN }}
