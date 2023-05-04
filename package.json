@@ -1,5 +1,5 @@
 {
-  "name": "ast-results",
+  "name": "fork-ast-results",
   "publisher": "hugocx",
   "displayName": "hugocx",
   "description": "Beat vulnerabilities with more-secure code",
@@ -29,713 +29,713 @@
   "contributes": {
     "commands": [
       {
-        "command": "ast-results.newDetails",
+        "command": "fork-ast-results.newDetails",
         "title": "Details"
       },
       {
-        "command": "ast-results.viewResult",
-        "category": "ast-results",
+        "command": "fork-ast-results.viewResult",
+        "category": "fork-ast-results",
         "title": "View",
         "icon": "$(eye)",
-        "enablement": "ast-results.isValidCredentials"
+        "enablement": "fork-ast-results.isValidCredentials"
       },
       {
-        "command": "ast-results.viewSettings",
-        "category": "ast-results",
+        "command": "fork-ast-results.viewSettings",
+        "category": "fork-ast-results",
         "title": "Settings",
         "icon": "$(gear)"
       },
       {
-        "command": "ast-results.viewKicsSaveSettings",
-        "category": "ast-results",
+        "command": "fork-ast-results.viewKicsSaveSettings",
+        "category": "fork-ast-results",
         "title": "Kics save settings",
         "icon": "$(gear)"
       },
       {
-        "command": "ast-results.refreshTree",
-        "category": "ast-results",
+        "command": "fork-ast-results.refreshTree",
+        "category": "fork-ast-results",
         "title": "Refresh tree",
-        "enablement": "ast-results.isValidCredentials"
+        "enablement": "fork-ast-results.isValidCredentials"
       },
       {
-        "command": "ast-results.kicsRealtime",
-        "category": "ast-results",
+        "command": "fork-ast-results.kicsRealtime",
+        "category": "fork-ast-results",
         "title": "Run kics realtime scan"
       },
       {
-        "command": "ast-results.clear",
-        "category": "ast-results",
+        "command": "fork-ast-results.clear",
+        "category": "fork-ast-results",
         "title": "Clear Selections",
-        "enablement": "ast-results.isValidCredentials"
+        "enablement": "fork-ast-results.isValidCredentials"
       },
       {
-        "command": "ast-results.groupBySeverityActive",
-        "category": "ast-results",
+        "command": "fork-ast-results.groupBySeverityActive",
+        "category": "fork-ast-results",
         "title": "✓ Group by: Severity",
-        "enablement": "ast-results.isValidCredentials && view == astResults"
+        "enablement": "fork-ast-results.isValidCredentials && view == astResults"
       },
       {
-        "command": "ast-results.groupByLanguageActive",
-        "category": "ast-results",
+        "command": "fork-ast-results.groupByLanguageActive",
+        "category": "fork-ast-results",
         "title": "✓ Group by: Language",
-        "enablement": "ast-results.isValidCredentials && view == astResults"
+        "enablement": "fork-ast-results.isValidCredentials && view == astResults"
       },
       {
-        "command": "ast-results.groupByStatusActive",
-        "category": "ast-results",
+        "command": "fork-ast-results.groupByStatusActive",
+        "category": "fork-ast-results",
         "title": "✓ Group by: Status",
-        "enablement": "ast-results.isValidCredentials && view == astResults"
+        "enablement": "fork-ast-results.isValidCredentials && view == astResults"
       },
       {
-        "command": "ast-results.groupByFileActive",
-        "category": "ast-results",
+        "command": "fork-ast-results.groupByFileActive",
+        "category": "fork-ast-results",
         "title": "✓ Group by: File",
-        "enablement": "ast-results.isValidCredentials && view == astResults"
+        "enablement": "fork-ast-results.isValidCredentials && view == astResults"
       },
       {
-        "command": "ast-results.groupByStateActive",
-        "category": "ast-results",
+        "command": "fork-ast-results.groupByStateActive",
+        "category": "fork-ast-results",
         "title": "✓ Group by: State",
-        "enablement": "ast-results.isValidCredentials && view == astResults"
+        "enablement": "fork-ast-results.isValidCredentials && view == astResults"
       },
       {
-        "command": "ast-results.groupByQueryNameActive",
-        "category": "ast-results",
+        "command": "fork-ast-results.groupByQueryNameActive",
+        "category": "fork-ast-results",
         "title": "✓ Group by: Vulnerability Type",
-        "enablement": "ast-results.isValidCredentials && view == astResults"
+        "enablement": "fork-ast-results.isValidCredentials && view == astResults"
       },
       {
-        "command": "ast-results.groupByDirectDependencyActive",
-        "category": "ast-results",
+        "command": "fork-ast-results.groupByDirectDependencyActive",
+        "category": "fork-ast-results",
         "title": "✓ Group by: Direct Dependency",
-        "enablement": "ast-results.isValidCredentials && view == astResults"
+        "enablement": "fork-ast-results.isValidCredentials && view == astResults"
       },
       {
-        "command": "ast-results.groupBySeverity",
-        "category": "ast-results",
+        "command": "fork-ast-results.groupBySeverity",
+        "category": "fork-ast-results",
         "title": "­­­ ­­ ­ ­ ­Group by: Severity",
-        "enablement": "ast-results.isValidCredentials && view == astResults"
+        "enablement": "fork-ast-results.isValidCredentials && view == astResults"
       },
       {
-        "command": "ast-results.groupByLanguage",
-        "category": "ast-results",
+        "command": "fork-ast-results.groupByLanguage",
+        "category": "fork-ast-results",
         "title": "­­­ ­­ ­ ­ ­Group by: Language",
-        "enablement": "ast-results.isValidCredentials && view == astResults"
+        "enablement": "fork-ast-results.isValidCredentials && view == astResults"
       },
       {
-        "command": "ast-results.groupByStatus",
-        "category": "ast-results",
+        "command": "fork-ast-results.groupByStatus",
+        "category": "fork-ast-results",
         "title": "­­­ ­­ ­ ­ ­Group by: Status",
-        "enablement": "ast-results.isValidCredentials && view == astResults"
+        "enablement": "fork-ast-results.isValidCredentials && view == astResults"
       },
       {
-        "command": "ast-results.groupByFile",
-        "category": "ast-results",
+        "command": "fork-ast-results.groupByFile",
+        "category": "fork-ast-results",
         "title": "­­­ ­­ ­ ­ ­Group by: File",
-        "enablement": "ast-results.isValidCredentials && view == astResults"
+        "enablement": "fork-ast-results.isValidCredentials && view == astResults"
       },
       {
-        "command": "ast-results.groupByState",
-        "category": "ast-results",
+        "command": "fork-ast-results.groupByState",
+        "category": "fork-ast-results",
         "title": "­­­ ­­ ­ ­ ­Group by: State",
-        "enablement": "ast-results.isValidCredentials && view == astResults"
+        "enablement": "fork-ast-results.isValidCredentials && view == astResults"
       },
       {
-        "command": "ast-results.groupByQueryName",
-        "category": "ast-results",
+        "command": "fork-ast-results.groupByQueryName",
+        "category": "fork-ast-results",
         "title": "­­­ ­­ ­ ­ ­Group by: Vulnerability Type",
-        "enablement": "ast-results.isValidCredentials && view == astResults"
+        "enablement": "fork-ast-results.isValidCredentials && view == astResults"
       },
       {
-        "command": "ast-results.groupByDirectDependency",
-        "category": "ast-results",
+        "command": "fork-ast-results.groupByDirectDependency",
+        "category": "fork-ast-results",
         "title": "­­­ ­­ ­ ­ ­Group by: Direct Dependency",
-        "enablement": "ast-results.isValidCredentials && view == astResults"
+        "enablement": "fork-ast-results.isValidCredentials && view == astResults"
       },
       {
-        "command": "ast-results.groupByDirectDependencies",
-        "category": "ast-results",
+        "command": "fork-ast-results.groupByDirectDependencies",
+        "category": "fork-ast-results",
         "title": "Group by: Direct Dependency",
-        "enablement": "ast-results.isValidCredentials"
+        "enablement": "fork-ast-results.isValidCredentials"
       },
       {
-        "command": "ast-results.groupBySeverities",
-        "category": "ast-results",
+        "command": "fork-ast-results.groupBySeverities",
+        "category": "fork-ast-results",
         "title": "Group by: Severity",
-        "enablement": "ast-results.isValidCredentials"
+        "enablement": "fork-ast-results.isValidCredentials"
       },
       {
-        "command": "ast-results.groupByLanguages",
-        "category": "ast-results",
+        "command": "fork-ast-results.groupByLanguages",
+        "category": "fork-ast-results",
         "title": "Group by: Language",
-        "enablement": "ast-results.isValidCredentials"
+        "enablement": "fork-ast-results.isValidCredentials"
       },
       {
-        "command": "ast-results.groupByStatuses",
-        "category": "ast-results",
+        "command": "fork-ast-results.groupByStatuses",
+        "category": "fork-ast-results",
         "title": "Group by: Status",
-        "enablement": "ast-results.isValidCredentials"
+        "enablement": "fork-ast-results.isValidCredentials"
       },
       {
-        "command": "ast-results.groupByFiles",
-        "category": "ast-results",
+        "command": "fork-ast-results.groupByFiles",
+        "category": "fork-ast-results",
         "title": "Group by: File",
-        "enablement": "ast-results.isValidCredentials"
+        "enablement": "fork-ast-results.isValidCredentials"
       },
       {
-        "command": "ast-results.groupByStates",
-        "category": "ast-results",
+        "command": "fork-ast-results.groupByStates",
+        "category": "fork-ast-results",
         "title": "Group by: State",
-        "enablement": "ast-results.isValidCredentials"
+        "enablement": "fork-ast-results.isValidCredentials"
       },
       {
-        "command": "ast-results.groupByQueryNames",
-        "category": "ast-results",
+        "command": "fork-ast-results.groupByQueryNames",
+        "category": "fork-ast-results",
         "title": "Group by: Vulnerability Type",
-        "enablement": "ast-results.isValidCredentials"
+        "enablement": "fork-ast-results.isValidCredentials"
       },
       {
-        "command": "ast-results.clearSca",
-        "category": "ast-results",
+        "command": "fork-ast-results.clearSca",
+        "category": "fork-ast-results",
         "title": "Clear SCA results tree",
         "icon": "$(refresh)"
       },
       {
-        "command": "ast-results.filterHigh_toggle",
-        "category": "ast-results",
+        "command": "fork-ast-results.filterHigh_toggle",
+        "category": "fork-ast-results",
         "title": "HIGH",
         "icon": "media/icons/high_toggle.svg",
-        "enablement": "ast-results.isValidCredentials && view == astResults"
+        "enablement": "fork-ast-results.isValidCredentials && view == astResults"
       },
       {
-        "command": "ast-results.filterHigh_untoggle",
-        "category": "ast-results",
+        "command": "fork-ast-results.filterHigh_untoggle",
+        "category": "fork-ast-results",
         "title": "HIGH",
         "icon": "media/icons/high_untoggle.svg",
-        "enablement": "ast-results.isValidCredentials && view == astResults"
+        "enablement": "fork-ast-results.isValidCredentials && view == astResults"
       },
       {
-        "command": "ast-results.filterMedium_toggle",
-        "category": "ast-results",
+        "command": "fork-ast-results.filterMedium_toggle",
+        "category": "fork-ast-results",
         "title": "MEDIUM",
         "icon": "media/icons/medium_toggle.svg",
-        "enablement": "ast-results.isValidCredentials && view == astResults"
+        "enablement": "fork-ast-results.isValidCredentials && view == astResults"
       },
       {
-        "command": "ast-results.filterMedium_untoggle",
-        "category": "ast-results",
+        "command": "fork-ast-results.filterMedium_untoggle",
+        "category": "fork-ast-results",
         "title": "MEDIUM",
         "icon": "media/icons/medium_untoggle.svg",
-        "enablement": "ast-results.isValidCredentials && view == astResults"
+        "enablement": "fork-ast-results.isValidCredentials && view == astResults"
       },
       {
-        "command": "ast-results.filterLow_toggle",
-        "category": "ast-results",
+        "command": "fork-ast-results.filterLow_toggle",
+        "category": "fork-ast-results",
         "title": "LOW",
         "icon": "media/icons/low_toggle.svg",
-        "enablement": "ast-results.isValidCredentials && view == astResults"
+        "enablement": "fork-ast-results.isValidCredentials && view == astResults"
       },
       {
-        "command": "ast-results.filterLow_untoggle",
-        "category": "ast-results",
+        "command": "fork-ast-results.filterLow_untoggle",
+        "category": "fork-ast-results",
         "title": "LOW",
         "icon": "media/icons/low_untoggle.svg",
-        "enablement": "ast-results.isValidCredentials && view == astResults"
+        "enablement": "fork-ast-results.isValidCredentials && view == astResults"
       },
       {
-        "command": "ast-results.filterInfo_toggle",
-        "category": "ast-results",
+        "command": "fork-ast-results.filterInfo_toggle",
+        "category": "fork-ast-results",
         "title": "INFO",
         "icon": "media/icons/info_toggle.svg",
-        "enablement": "ast-results.isValidCredentials && view == astResults"
+        "enablement": "fork-ast-results.isValidCredentials && view == astResults"
       },
       {
-        "command": "ast-results.filterInfo_untoggle",
-        "category": "ast-results",
+        "command": "fork-ast-results.filterInfo_untoggle",
+        "category": "fork-ast-results",
         "title": "INFO",
         "icon": "media/icons/info_untoggle.svg",
-        "enablement": "ast-results.isValidCredentials && view == astResults"
+        "enablement": "fork-ast-results.isValidCredentials && view == astResults"
       },
       {
-        "command": "ast-results.filterHigh",
-        "category": "ast-results",
+        "command": "fork-ast-results.filterHigh",
+        "category": "fork-ast-results",
         "title": "Filter severity: High",
         "icon": "media/icons/high_untoggle.svg",
-        "enablement": "ast-results.isValidCredentials"
+        "enablement": "fork-ast-results.isValidCredentials"
       },
       {
-        "command": "ast-results.filterMedium",
-        "category": "ast-results",
+        "command": "fork-ast-results.filterMedium",
+        "category": "fork-ast-results",
         "title": "Filter severity: Medium",
         "icon": "media/icons/medium_toggle.svg",
-        "enablement": "ast-results.isValidCredentials"
+        "enablement": "fork-ast-results.isValidCredentials"
       },
       {
-        "command": "ast-results.filterLow",
-        "category": "ast-results",
+        "command": "fork-ast-results.filterLow",
+        "category": "fork-ast-results",
         "title": "Filter severity: Low",
         "icon": "media/icons/low_toggle.svg",
-        "enablement": "ast-results.isValidCredentials"
+        "enablement": "fork-ast-results.isValidCredentials"
       },
       {
-        "command": "ast-results.filterInfo",
-        "category": "ast-results",
+        "command": "fork-ast-results.filterInfo",
+        "category": "fork-ast-results",
         "title": "Filter severity: Info",
         "icon": "media/icons/info_toggle.svg",
-        "enablement": "ast-results.isValidCredentials"
+        "enablement": "fork-ast-results.isValidCredentials"
       },
       {
-        "command": "ast-results.generalPick",
-        "category": "ast-results",
+        "command": "fork-ast-results.generalPick",
+        "category": "fork-ast-results",
         "title": "Select All",
         "icon": "$(search)",
-        "enablement": "ast-results.isValidCredentials"
+        "enablement": "fork-ast-results.isValidCredentials"
       },
       {
-        "command": "ast-results.createScan",
-        "category": "ast-results",
+        "command": "fork-ast-results.createScan",
+        "category": "fork-ast-results",
         "title": "Create Scan",
         "icon": "$(notebook-execute)",
-        "enablement": "ast-results.isScanEnabled && ast-results.createScanButton"
+        "enablement": "fork-ast-results.isScanEnabled && fork-ast-results.createScanButton"
       },
       {
-        "command": "ast-results.cancelScan",
-        "category": "ast-results",
+        "command": "fork-ast-results.cancelScan",
+        "category": "fork-ast-results",
         "title": "Cancel Scan",
         "icon": "$(diff-review-close)",
-        "enablement": "ast-results.isScanEnabled && ast-results.cancelScanButton"
+        "enablement": "fork-ast-results.isScanEnabled && fork-ast-results.cancelScanButton"
       },
       {
-        "command": "ast-results.projectPick",
-        "category": "ast-results",
+        "command": "fork-ast-results.projectPick",
+        "category": "fork-ast-results",
         "title": "Select Project",
         "icon": "$(edit)",
-        "enablement": "ast-results.isValidCredentials"
+        "enablement": "fork-ast-results.isValidCredentials"
       },
       {
-        "command": "ast-results.branchPick",
-        "category": "ast-results",
+        "command": "fork-ast-results.branchPick",
+        "category": "fork-ast-results",
         "title": "Select Branch",
         "icon": "$(edit)",
-        "enablement": "ast-results.isValidCredentials"
+        "enablement": "fork-ast-results.isValidCredentials"
       },
       {
-        "command": "ast-results.scanPick",
-        "category": "ast-results",
+        "command": "fork-ast-results.scanPick",
+        "category": "fork-ast-results",
         "title": "Select Scan",
         "icon": "$(edit)",
-        "enablement": "ast-results.isValidCredentials"
+        "enablement": "fork-ast-results.isValidCredentials"
       },
       {
-        "command": "ast-results.scanInput",
-        "category": "ast-results",
+        "command": "fork-ast-results.scanInput",
+        "category": "fork-ast-results",
         "title": "Look for Scan",
         "icon": "$(search)",
-        "enablement": "ast-results.isValidCredentials"
+        "enablement": "fork-ast-results.isValidCredentials"
       },
       {
-        "command": "ast-results.filterNotExploitableActive",
-        "category": "ast-results",
+        "command": "fork-ast-results.filterNotExploitableActive",
+        "category": "fork-ast-results",
         "title": "✓ Filter: Not Exploitable",
-        "enablement": "ast-results.isValidCredentials && view == astResults"
+        "enablement": "fork-ast-results.isValidCredentials && view == astResults"
       },
       {
-        "command": "ast-results.filterUrgentActive",
-        "category": "ast-results",
+        "command": "fork-ast-results.filterUrgentActive",
+        "category": "fork-ast-results",
         "title": "✓ Filter: Urgent",
-        "enablement": "ast-results.isValidCredentials && view == astResults"
+        "enablement": "fork-ast-results.isValidCredentials && view == astResults"
       },
       {
-        "command": "ast-results.filterProposedActive",
-        "category": "ast-results",
+        "command": "fork-ast-results.filterProposedActive",
+        "category": "fork-ast-results",
         "title": "✓ Filter: Proposed Not Exploitable",
-        "enablement": "ast-results.isValidCredentials && view == astResults"
+        "enablement": "fork-ast-results.isValidCredentials && view == astResults"
       },
       {
-        "command": "ast-results.filterConfirmedActive",
-        "category": "ast-results",
+        "command": "fork-ast-results.filterConfirmedActive",
+        "category": "fork-ast-results",
         "title": "✓ Filter: Confirmed",
-        "enablement": "ast-results.isValidCredentials && view == astResults"
+        "enablement": "fork-ast-results.isValidCredentials && view == astResults"
       },
       {
-        "command": "ast-results.filterToConfirmActive",
-        "category": "ast-results",
+        "command": "fork-ast-results.filterToConfirmActive",
+        "category": "fork-ast-results",
         "title": "✓ Filter: To Vonfirm",
-        "enablement": "ast-results.isValidCredentials && view == astResults"
+        "enablement": "fork-ast-results.isValidCredentials && view == astResults"
       },
       {
-        "command": "ast-results.filterToVerifyActive",
-        "category": "ast-results",
+        "command": "fork-ast-results.filterToVerifyActive",
+        "category": "fork-ast-results",
         "title": "✓ Filter: To Verify",
-        "enablement": "ast-results.isValidCredentials && view == astResults"
+        "enablement": "fork-ast-results.isValidCredentials && view == astResults"
       },
       {
-        "command": "ast-results.filterNotIgnoredActive",
-        "category": "ast-results",
+        "command": "fork-ast-results.filterNotIgnoredActive",
+        "category": "fork-ast-results",
         "title": "✓ Filter: Not Ignored",
-        "enablement": "ast-results.isValidCredentials && view == astResults"
+        "enablement": "fork-ast-results.isValidCredentials && view == astResults"
       },
       {
-        "command": "ast-results.filterIgnoredActive",
-        "category": "ast-results",
+        "command": "fork-ast-results.filterIgnoredActive",
+        "category": "fork-ast-results",
         "title": "✓ Filter: Ignored",
-        "enablement": "ast-results.isValidCredentials && view == astResults"
+        "enablement": "fork-ast-results.isValidCredentials && view == astResults"
       },
       {
-        "command": "ast-results.filterNotExploitable",
-        "category": "ast-results",
+        "command": "fork-ast-results.filterNotExploitable",
+        "category": "fork-ast-results",
         "title": "­­­ ­­ ­ ­ ­Filter: Not Exploitable",
-        "enablement": "ast-results.isValidCredentials && view == astResults"
+        "enablement": "fork-ast-results.isValidCredentials && view == astResults"
       },
       {
-        "command": "ast-results.filterUrgent",
-        "category": "ast-results",
+        "command": "fork-ast-results.filterUrgent",
+        "category": "fork-ast-results",
         "title": "­­­ ­­ ­ ­ ­Filter: Urgent",
-        "enablement": "ast-results.isValidCredentials && view == astResults"
+        "enablement": "fork-ast-results.isValidCredentials && view == astResults"
       },
       {
-        "command": "ast-results.filterProposed",
-        "category": "ast-results",
+        "command": "fork-ast-results.filterProposed",
+        "category": "fork-ast-results",
         "title": "­­­ ­­ ­ ­ ­Filter: Proposed Not Exploitable",
-        "enablement": "ast-results.isValidCredentials && view == astResults"
+        "enablement": "fork-ast-results.isValidCredentials && view == astResults"
       },
       {
-        "command": "ast-results.filterConfirmed",
-        "category": "ast-results",
+        "command": "fork-ast-results.filterConfirmed",
+        "category": "fork-ast-results",
         "title": "­­­ ­­ ­ ­ ­Filter: Confirmed",
-        "enablement": "ast-results.isValidCredentials && view == astResults"
+        "enablement": "fork-ast-results.isValidCredentials && view == astResults"
       },
       {
-        "command": "ast-results.filterToConfirm",
-        "category": "ast-results",
+        "command": "fork-ast-results.filterToConfirm",
+        "category": "fork-ast-results",
         "title": "­­­ ­­ ­ ­ ­Filter: To Confirm",
-        "enablement": "ast-results.isValidCredentials && view == astResults"
+        "enablement": "fork-ast-results.isValidCredentials && view == astResults"
       },
       {
-        "command": "ast-results.filterToVerify",
-        "category": "ast-results",
+        "command": "fork-ast-results.filterToVerify",
+        "category": "fork-ast-results",
         "title": "­­­ ­­ ­ ­ ­Filter: To Verify",
-        "enablement": "ast-results.isValidCredentials && view == astResults"
+        "enablement": "fork-ast-results.isValidCredentials && view == astResults"
       },
       {
-        "command": "ast-results.filterNotIgnored",
-        "category": "ast-results",
+        "command": "fork-ast-results.filterNotIgnored",
+        "category": "fork-ast-results",
         "title": "­­­ ­­ ­ ­ ­Filter: Not Ignored",
-        "enablement": "ast-results.isValidCredentials && view == astResults"
+        "enablement": "fork-ast-results.isValidCredentials && view == astResults"
       },
       {
-        "command": "ast-results.filterIgnored",
-        "category": "ast-results",
+        "command": "fork-ast-results.filterIgnored",
+        "category": "fork-ast-results",
         "title": "­­­ ­­ ­ ­ ­Filter: Ignored",
-        "enablement": "ast-results.isValidCredentials && view == astResults"
+        "enablement": "fork-ast-results.isValidCredentials && view == astResults"
       },
       {
-        "command": "ast-results.filterNotExploitables",
-        "category": "ast-results",
+        "command": "fork-ast-results.filterNotExploitables",
+        "category": "fork-ast-results",
         "title": "Filter: Not Exploitable",
-        "enablement": "ast-results.isValidCredentials"
+        "enablement": "fork-ast-results.isValidCredentials"
       },
       {
-        "command": "ast-results.filterUrgents",
-        "category": "ast-results",
+        "command": "fork-ast-results.filterUrgents",
+        "category": "fork-ast-results",
         "title": "Filter: Urgent",
-        "enablement": "ast-results.isValidCredentials"
+        "enablement": "fork-ast-results.isValidCredentials"
       },
       {
-        "command": "ast-results.filterProposeds",
-        "category": "ast-results",
+        "command": "fork-ast-results.filterProposeds",
+        "category": "fork-ast-results",
         "title": "Filter: Proposed Not Exploitable",
-        "enablement": "ast-results.isValidCredentials"
+        "enablement": "fork-ast-results.isValidCredentials"
       },
       {
-        "command": "ast-results.filterConfirmeds",
-        "category": "ast-results",
+        "command": "fork-ast-results.filterConfirmeds",
+        "category": "fork-ast-results",
         "title": "Filter: Confirmed",
-        "enablement": "ast-results.isValidCredentials"
+        "enablement": "fork-ast-results.isValidCredentials"
       },
       {
-        "command": "ast-results.filterToConfirms",
-        "category": "ast-results",
+        "command": "fork-ast-results.filterToConfirms",
+        "category": "fork-ast-results",
         "title": "Filter: To Confirm",
-        "enablement": "ast-results.isValidCredentials"
+        "enablement": "fork-ast-results.isValidCredentials"
       },
       {
-        "command": "ast-results.filterToVerifies",
-        "category": "ast-results",
+        "command": "fork-ast-results.filterToVerifies",
+        "category": "fork-ast-results",
         "title": "Filter: To Verify",
-        "enablement": "ast-results.isValidCredentials"
+        "enablement": "fork-ast-results.isValidCredentials"
       },
       {
-        "command": "ast-results.filterIgnoreds",
-        "category": "ast-results",
+        "command": "fork-ast-results.filterIgnoreds",
+        "category": "fork-ast-results",
         "title": "Filter: Ignored",
-        "enablement": "ast-results.isValidCredentials"
+        "enablement": "fork-ast-results.isValidCredentials"
       },
       {
-        "command": "ast-results.filterNotIgnoreds",
-        "category": "ast-results",
+        "command": "fork-ast-results.filterNotIgnoreds",
+        "category": "fork-ast-results",
         "title": "Filter: Not Ignored",
-        "enablement": "ast-results.isValidCredentials"
+        "enablement": "fork-ast-results.isValidCredentials"
       },
       {
-        "command": "ast-results.createSCAScan",
-        "category": "ast-results",
+        "command": "fork-ast-results.createSCAScan",
+        "category": "fork-ast-results",
         "title": "Run SCA Auto Scan",
         "icon": "$(notebook-execute)",
-        "enablement": "ast-results.isSCAScanEnabled"
+        "enablement": "fork-ast-results.isSCAScanEnabled"
       }
     ],
     "submenus": [
       {
-        "id": "ast-results.filterBy",
+        "id": "fork-ast-results.filterBy",
         "label": "Filter",
         "icon": "$(filter)",
-        "enablement": "ast-results.isValidCredentials"
+        "enablement": "fork-ast-results.isValidCredentials"
       }
     ],
     "menus": {
-      "ast-results.filterBy": [
+      "fork-ast-results.filterBy": [
         {
-          "command": "ast-results.filterNotExploitableActive",
+          "command": "fork-ast-results.filterNotExploitableActive",
           "group": "navigation@3",
-          "when": "ast-results-NotExploitable"
+          "when": "fork-ast-results-NotExploitable"
         },
         {
-          "command": "ast-results.filterProposedActive",
+          "command": "fork-ast-results.filterProposedActive",
           "group": "navigation@5",
-          "when": "ast-results-Proposed"
+          "when": "fork-ast-results-Proposed"
         },
         {
-          "command": "ast-results.filterConfirmedActive",
+          "command": "fork-ast-results.filterConfirmedActive",
           "group": "navigation@1",
-          "when": "ast-results-Confirmed"
+          "when": "fork-ast-results-Confirmed"
         },
         {
-          "command": "ast-results.filterToVerifyActive",
+          "command": "fork-ast-results.filterToVerifyActive",
           "group": "navigation@6",
-          "when": "ast-results-ToVerify"
+          "when": "fork-ast-results-ToVerify"
         },
         {
-          "command": "ast-results.filterUrgentActive",
+          "command": "fork-ast-results.filterUrgentActive",
           "group": "navigation@7",
-          "when": "ast-results-Urgent"
+          "when": "fork-ast-results-Urgent"
         },
         {
-          "command": "ast-results.filterNotIgnoredActive",
+          "command": "fork-ast-results.filterNotIgnoredActive",
           "group": "navigation@4",
-          "when": "ast-results-NotIgnored"
+          "when": "fork-ast-results-NotIgnored"
         },
         {
-          "command": "ast-results.filterIgnoredActive",
+          "command": "fork-ast-results.filterIgnoredActive",
           "group": "navigation@2",
-          "when": "ast-results-Ignored"
+          "when": "fork-ast-results-Ignored"
         },
         {
-          "command": "ast-results.filterNotExploitable",
+          "command": "fork-ast-results.filterNotExploitable",
           "group": "navigation@3",
-          "when": "!ast-results-NotExploitable"
+          "when": "!fork-ast-results-NotExploitable"
         },
         {
-          "command": "ast-results.filterProposed",
+          "command": "fork-ast-results.filterProposed",
           "group": "navigation@5",
-          "when": "!ast-results-Proposed"
+          "when": "!fork-ast-results-Proposed"
         },
         {
-          "command": "ast-results.filterConfirmed",
+          "command": "fork-ast-results.filterConfirmed",
           "group": "navigation@1",
-          "when": "!ast-results-Confirmed"
+          "when": "!fork-ast-results-Confirmed"
         },
         {
-          "command": "ast-results.filterToVerify",
+          "command": "fork-ast-results.filterToVerify",
           "group": "navigation@6",
-          "when": "!ast-results-ToVerify"
+          "when": "!fork-ast-results-ToVerify"
         },
         {
-          "command": "ast-results.filterUrgent",
+          "command": "fork-ast-results.filterUrgent",
           "group": "navigation@7",
-          "when": "!ast-results-Urgent"
+          "when": "!fork-ast-results-Urgent"
         },
         {
-          "command": "ast-results.filterNotIgnored",
+          "command": "fork-ast-results.filterNotIgnored",
           "group": "navigation@4",
-          "when": "!ast-results-NotIgnored"
+          "when": "!fork-ast-results-NotIgnored"
         },
         {
-          "command": "ast-results.filterIgnored",
+          "command": "fork-ast-results.filterIgnored",
           "group": "navigation@2",
-          "when": "!ast-results-Ignored"
+          "when": "!fork-ast-results-Ignored"
         }
       ],
       "view/item/context": [
         {
-          "command": "ast-results.projectPick",
+          "command": "fork-ast-results.projectPick",
           "group": "inline@3",
           "when": "viewItem == project-item"
         },
         {
-          "command": "ast-results.branchPick",
+          "command": "fork-ast-results.branchPick",
           "group": "inline",
           "when": "viewItem == branch-item"
         },
         {
-          "command": "ast-results.scanPick",
+          "command": "fork-ast-results.scanPick",
           "group": "inline",
           "when": "viewItem == scan-item"
         },
         {
-          "command": "ast-results.scanInput",
+          "command": "fork-ast-results.scanInput",
           "group": "inline",
           "when": "viewItem == scan-item"
         }
       ],
       "view/title": [
         {
-          "command": "ast-results.createSCAScan",
+          "command": "fork-ast-results.createSCAScan",
           "group": "navigation@1",
           "when": "view == scaAutoScan"
         },
         {
-          "command": "ast-results.createScan",
+          "command": "fork-ast-results.createScan",
           "group": "navigation@0",
-          "when": "view == astResults && ast-results.createScanButton && !ast-results.cancelScanButton  || view == astResults && !ast-results.createScanButton && !ast-results.cancelScanButton"
+          "when": "view == astResults && fork-ast-results.createScanButton && !fork-ast-results.cancelScanButton  || view == astResults && !fork-ast-results.createScanButton && !fork-ast-results.cancelScanButton"
         },
         {
-          "command": "ast-results.cancelScan",
+          "command": "fork-ast-results.cancelScan",
           "group": "navigation@1",
-          "when": "view == astResults && ast-results.cancelScanButton || view == astResults && !ast-results.createScanButton && ast-results.cancelScanButton"
+          "when": "view == astResults && fork-ast-results.cancelScanButton || view == astResults && !fork-ast-results.createScanButton && fork-ast-results.cancelScanButton"
         },
         {
-          "command": "ast-results.filterHigh_untoggle",
+          "command": "fork-ast-results.filterHigh_untoggle",
           "group": "navigation@1",
-          "when": "view == astResults && ast-results-high"
+          "when": "view == astResults && fork-ast-results-high"
         },
         {
-          "command": "ast-results.filterHigh_toggle",
+          "command": "fork-ast-results.filterHigh_toggle",
           "group": "navigation@1",
-          "when": "view == astResults && !ast-results-high"
+          "when": "view == astResults && !fork-ast-results-high"
         },
         {
-          "command": "ast-results.filterMedium_untoggle",
+          "command": "fork-ast-results.filterMedium_untoggle",
           "group": "navigation@2",
-          "when": "view == astResults && ast-results-medium"
+          "when": "view == astResults && fork-ast-results-medium"
         },
         {
-          "command": "ast-results.filterMedium_toggle",
+          "command": "fork-ast-results.filterMedium_toggle",
           "group": "navigation@2",
-          "when": "view == astResults && !ast-results-medium"
+          "when": "view == astResults && !fork-ast-results-medium"
         },
         {
-          "command": "ast-results.filterLow_untoggle",
+          "command": "fork-ast-results.filterLow_untoggle",
           "group": "navigation@3",
-          "when": "view == astResults && ast-results-low"
+          "when": "view == astResults && fork-ast-results-low"
         },
         {
-          "command": "ast-results.filterLow_toggle",
+          "command": "fork-ast-results.filterLow_toggle",
           "group": "navigation@3",
-          "when": "view == astResults && !ast-results-low"
+          "when": "view == astResults && !fork-ast-results-low"
         },
         {
-          "command": "ast-results.filterInfo_untoggle",
+          "command": "fork-ast-results.filterInfo_untoggle",
           "group": "navigation@4",
-          "when": "view == astResults && ast-results-info"
+          "when": "view == astResults && fork-ast-results-info"
         },
         {
-          "command": "ast-results.filterInfo_toggle",
+          "command": "fork-ast-results.filterInfo_toggle",
           "group": "navigation@4",
-          "when": "view == astResults && !ast-results-info"
+          "when": "view == astResults && !fork-ast-results-info"
         },
         {
-          "command": "ast-results.groupBySeverity",
+          "command": "fork-ast-results.groupBySeverity",
           "group": "@groupBy@4",
-          "when": "view == astResults && !ast-results-groupBySeverity"
+          "when": "view == astResults && !fork-ast-results-groupBySeverity"
         },
         {
-          "command": "ast-results.groupByStatus",
+          "command": "fork-ast-results.groupByStatus",
           "group": "@groupBy@6",
-          "when": "view == astResults && !ast-results-groupByStatus"
+          "when": "view == astResults && !fork-ast-results-groupByStatus"
         },
         {
-          "command": "ast-results.groupByLanguage",
+          "command": "fork-ast-results.groupByLanguage",
           "group": "@groupBy@2",
-          "when": "view == astResults && !ast-results-groupByLanguage"
+          "when": "view == astResults && !fork-ast-results-groupByLanguage"
         },
         {
-          "command": "ast-results.groupByFile",
+          "command": "fork-ast-results.groupByFile",
           "group": "@groupBy@1",
-          "when": "view == astResults && !ast-results-groupByFile"
+          "when": "view == astResults && !fork-ast-results-groupByFile"
         },
         {
-          "command": "ast-results.groupByState",
+          "command": "fork-ast-results.groupByState",
           "group": "@groupBy@5",
-          "when": "view == astResults && !ast-results-groupByState"
+          "when": "view == astResults && !fork-ast-results-groupByState"
         },
         {
-          "command": "ast-results.groupByQueryName",
+          "command": "fork-ast-results.groupByQueryName",
           "group": "@groupBy@3",
-          "when": "view == astResults && !ast-results-groupByQueryName"
+          "when": "view == astResults && !fork-ast-results-groupByQueryName"
         },
         {
-          "command": "ast-results.groupByDirectDependency",
+          "command": "fork-ast-results.groupByDirectDependency",
           "group": "@groupBy@7",
-          "when": "view == astResults && !ast-results-groupByDirectDependency"
+          "when": "view == astResults && !fork-ast-results-groupByDirectDependency"
         },
         {
-          "command": "ast-results.groupBySeverityActive",
+          "command": "fork-ast-results.groupBySeverityActive",
           "group": "@groupBy@4",
-          "when": "view == astResults && ast-results-groupBySeverity"
+          "when": "view == astResults && fork-ast-results-groupBySeverity"
         },
         {
-          "command": "ast-results.groupByStatusActive",
+          "command": "fork-ast-results.groupByStatusActive",
           "group": "@groupBy@6",
-          "when": "view == astResults && ast-results-groupByStatus"
+          "when": "view == astResults && fork-ast-results-groupByStatus"
         },
         {
-          "command": "ast-results.groupByLanguageActive",
+          "command": "fork-ast-results.groupByLanguageActive",
           "group": "@groupBy@2",
-          "when": "view == astResults && ast-results-groupByLanguage"
+          "when": "view == astResults && fork-ast-results-groupByLanguage"
         },
         {
-          "command": "ast-results.groupByFileActive",
+          "command": "fork-ast-results.groupByFileActive",
           "group": "@groupBy@1",
-          "when": "view == astResults && ast-results-groupByFile"
+          "when": "view == astResults && fork-ast-results-groupByFile"
         },
         {
-          "command": "ast-results.groupByStateActive",
+          "command": "fork-ast-results.groupByStateActive",
           "group": "@groupBy@5",
-          "when": "view == astResults && ast-results-groupByState"
+          "when": "view == astResults && fork-ast-results-groupByState"
         },
         {
-          "command": "ast-results.groupByQueryNameActive",
+          "command": "fork-ast-results.groupByQueryNameActive",
           "group": "@groupBy@3",
-          "when": "view == astResults && ast-results-groupByQueryName"
+          "when": "view == astResults && fork-ast-results-groupByQueryName"
         },
         {
-          "command": "ast-results.groupByDirectDependencyActive",
+          "command": "fork-ast-results.groupByDirectDependencyActive",
           "group": "@groupBy@7",
-          "when": "view == astResults && ast-results-groupByDirectDependency"
+          "when": "view == astResults && fork-ast-results-groupByDirectDependency"
         },
         {
-          "command": "ast-results.viewSettings",
+          "command": "fork-ast-results.viewSettings",
           "group": "@settings@2",
           "when": "view == astResults || view==scaAutoScan"
         },
         {
-          "command": "ast-results.clear",
+          "command": "fork-ast-results.clear",
           "group": "@settings@1",
           "when": "view == astResults"
         },
         {
-          "command": "ast-results.clearSca",
+          "command": "fork-ast-results.clearSca",
           "group": "navigation@2",
           "when": "view == scaAutoScan"
         },
         {
-          "command": "ast-results.generalPick",
+          "command": "fork-ast-results.generalPick",
           "group": "@settings@0",
           "when": "view == astResults"
         },
         {
-          "submenu": "ast-results.filterBy",
+          "submenu": "fork-ast-results.filterBy",
           "group": "navigation@5",
           "when": "view == astResults"
         }
@@ -767,14 +767,14 @@
     "viewsWelcome": [
       {
         "view": "astResults",
-        "contents": "In order to use Checkarmx One, you need to setup your credentials.\n[Open settings](command:ast-results.viewSettings)\nTo learn more about how to use Checkmarx One [read our docs](https://docs.kics.io/latest/integrations_auto_scanning_visual_studio).",
-        "when": "!ast-results.isValidCredentials"
+        "contents": "In order to use Checkarmx One, you need to setup your credentials.\n[Open settings](command:fork-ast-results.viewSettings)\nTo learn more about how to use Checkmarx One [read our docs](https://docs.kics.io/latest/integrations_auto_scanning_visual_studio).",
+        "when": "!fork-ast-results.isValidCredentials"
       }
     ],
     "configuration": [
       {
         "title": "Checkmarx One",
-        "id": "ast-results",
+        "id": "fork-ast-results",
         "order": 2,
         "properties": {
           "checkmarxOne.apiKey": {
