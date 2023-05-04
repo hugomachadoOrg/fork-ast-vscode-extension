@@ -96,7 +96,12 @@ jobs:
         run: npm install -g vsce
 
       - name: Package .vsix file
-        run: vsce package ${{env.TAG_NAME}}
+        run: |
+          if [ ${{ inputs.dev }} == true ]; then
+            vsce package ${{env.TAG_NAME}} --pre-release
+          else
+            vsce package ${{env.TAG_NAME}}
+          fi
         
       # PUSH TAGS IF IT IS A RELEASE
       - name: Push tag if release
