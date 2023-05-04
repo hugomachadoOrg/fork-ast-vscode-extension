@@ -20,7 +20,7 @@ on:
   workflow_dispatch:
     inputs:
       jsTag:
-        description: 'JS wrapper tag name (ignored if not dev build)'
+        description: 'JSWrapper tag name (ignored if not dev build)'
         required: false
       vscodeTag:
         description: 'Tag name (ignored if not dev build)'
