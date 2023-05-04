@@ -79,14 +79,14 @@ jobs:
         run: npm install -g vsce
 
       - name: Package .vsix file
-        run: vsce package 2.0.40
+        run: vsce package 2.0.24
       
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: 2.0.40
+          tag_name: 2.0.24
           generate_release_notes: true
-          files: ast-results-2.0.40.vsix
+          files: ast-results-2.0.24.vsix
       
       - name: Publish
         env:
