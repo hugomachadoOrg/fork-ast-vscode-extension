@@ -60,6 +60,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 14
+          
+      - name: get-npm-version
+        id: package-version
+        uses: martinbeentjes/npm-get-version-action@v1.3.1
+        
+      - name: Print npm version from package json
+        run: echo CURRENT VERSION = ${{ steps.package-version.outputs.current-version}}
 
       - name: Get JS Wrapper nightly release
         if: github.event_name == 'push'
@@ -83,6 +90,13 @@ jobs:
           
           echo Next tag name = ${TAG_NAME}
           
+      - name: get-npm-version
+        id: package-versionn
+        uses: martinbeentjes/npm-get-version-action@v1.3.1
+        
+      - name: Print npm version from package json
+        run: echo CURRENT VERSION = ${{ steps.package-versionn.outputs.current-version}}
+        
       - name: Install dependencies
         run: npm install
         
@@ -100,8 +114,8 @@ jobs:
       - name: Package .vsix file
         run: |
           if [ ${{ inputs.dev }} == true ]; then
-            echo Run command = "vsce package ${{env.TAG_NAME}} --pre-release --no-git-tag-version --allow-same-version"
-            vsce package ${{env.TAG_NAME}} --pre-release --no-git-tag-version --allow-same-version
+            echo Run command = "vsce package ${{env.TAG_NAME}} --pre-release --no-git-tag-version"
+            vsce package ${{env.TAG_NAME}} --pre-release --no-git-tag-version
           else
             echo Run command = "vsce package ${{env.TAG_NAME}}"
             vsce package ${{env.TAG_NAME}}
