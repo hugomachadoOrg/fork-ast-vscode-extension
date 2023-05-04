@@ -60,17 +60,24 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 14
-
-      #- name: Get JS Wrapper nightly release
-      #  if: github.event_name == 'push'
-      #  run: |
-      #    echo "Getting js nightly version..."
-
-      #    NIGHTLY_VERSION_NAME=$(curl -L -H "Accept: application/vnd.github+json" -H "Authorization: Bearer ${{ secrets.PERSONAL_ACCESS_TOKEN }}" -H "X-GitHub-Api-Version: 2022-11-28" https://api.github.com/orgs/CheckmarxDev/packages/npm/ast-cli-javascript-wrapper/versions | jq '.[]|select(.name | contains("-nightly.0"))|.name')
           
-      #    echo "Nightly version = " ${NIGHTLY_VERSION_NAME}
+      - name: get-npm-version
+        id: package-version
+        uses: martinbeentjes/npm-get-version-action@v1.3.1
+        
+      - name: Print npm version from package json
+        run: echo CURRENT VERSION = ${{ steps.package-version.outputs.current-version}}
+
+      - name: Get JS Wrapper nightly release
+        if: github.event_name == 'push'
+        run: |
+          echo "Getting js nightly version..."
+
+          NIGHTLY_VERSION_NAME=$(curl -L -H "Accept: application/vnd.github+json" -H "Authorization: Bearer ${{ secrets.PERSONAL_ACCESS_TOKEN }}" -H "X-GitHub-Api-Version: 2022-11-28" https://api.github.com/orgs/CheckmarxDev/packages/npm/ast-cli-javascript-wrapper/versions | jq '.[]|select(.name | contains("-nightly.0"))|.name')
           
-      #    echo "JS_NIGHTLY_VERSION_NAME=${NIGHTLY_VERSION_NAME}" >> $GITHUB_ENV
+          echo "Nightly version = " ${NIGHTLY_VERSION_NAME}
+          
+          echo "JS_NIGHTLY_VERSION_NAME=${NIGHTLY_VERSION_NAME}" >> $GITHUB_ENV
           
       # GET TAG NAME
       - name: Generate Tag name
@@ -81,6 +88,15 @@ jobs:
             echo "TAG_NAME=$(npm version patch)" >> $GITHUB_ENV
           fi
           
+          echo Next tag name = ${TAG_NAME}
+          
+      - name: get-npm-version
+        id: package-versionn
+        uses: martinbeentjes/npm-get-version-action@v1.3.1
+        
+      - name: Print npm version from package json
+        run: echo CURRENT VERSION = ${{ steps.package-versionn.outputs.current-version}}
+        
       - name: Install dependencies
         run: npm install
         
@@ -96,7 +112,15 @@ jobs:
         run: npm install -g vsce
 
       - name: Package .vsix file
-        run: vsce package ${{env.TAG_NAME}}
+        run: |
+          if [ ${{ inputs.dev }} == true ]; then
+            vsce package --pre-release
+          else
+            vsce package
+          fi
+          
+          TAG_NAME=${{env.TAG_NAME}}
+          echo "VSIX_TAG_NAME=${TAG_NAME:1}" >> $GITHUB_ENV
         
       # PUSH TAGS IF IT IS A RELEASE
       - name: Push tag if release
@@ -108,7 +132,7 @@ jobs:
         with:
           tag_name: ${{env.TAG_NAME}}
           generate_release_notes: true
-          files: ast-results-${{env.TAG_NAME}}.vsix
+          files: fork-ast-results-${{env.VSIX_TAG_NAME}}.vsix
           prerelease: ${{ inputs.dev }}
       
       #- name: Publish
