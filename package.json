@@ -1,7 +1,7 @@
 {
   "name": "ast-results",
-  "publisher": "checkmarx",
-  "displayName": "Checkmarx",
+  "publisher": "hugocx",
+  "displayName": "hugocx",
   "description": "Beat vulnerabilities with more-secure code",
   "version": "2.0.23",
   "repository": {
