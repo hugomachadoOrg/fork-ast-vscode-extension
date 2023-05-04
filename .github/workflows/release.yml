@@ -111,6 +111,10 @@ jobs:
       - name: Push tag if release
         if: inputs.dev == false
         run: git push && git push --tags
+        
+      - name: Check dependencies
+        run: |
+            npm list
       
       - name: Create Release
         uses: softprops/action-gh-release@v1
