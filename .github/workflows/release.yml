@@ -72,29 +72,44 @@ jobs:
           
       #    echo "JS_NIGHTLY_VERSION_NAME=${NIGHTLY_VERSION_NAME}" >> $GITHUB_ENV
           
+      # GET TAG NAME
+      - name: Generate Tag name
+        run: |
+          if [ ${{ inputs.dev }} == true ]; then
+            echo "TAG_NAME=$(npm version prerelease --preid=${{ inputs.jsTag }} --no-git-tag-version --allow-same-version)" >> $GITHUB_ENV
+          else
+            echo "TAG_NAME=$(npm version patch)" >> $GITHUB_ENV
+          fi
+          
       - name: Install dependencies
         run: npm install
         
-      #- name: Install js wrapper nightly version
-      #  if: github.event_name == 'push' && env.JS_NIGHTLY_VERSION_NAME != ''
-      #  run: |
-      #    npm install @checkmarxdev/ast-cli-javascript-wrapper@${{env.JS_NIGHTLY_VERSION_NAME}}
+      - name: Install js wrapper nightly version
+        if: github.event_name == 'push' && env.JS_NIGHTLY_VERSION_NAME != ''
+        run: |
+          npm install @checkmarxdev/ast-cli-javascript-wrapper@${{env.JS_NIGHTLY_VERSION_NAME}}
           
-      #    npm list
+          npm list
           
 
       - name: Install VSCE
         run: npm install -g vsce
 
       - name: Package .vsix file
-        run: vsce package 2.0.24
+        run: vsce package ${{env.TAG_NAME}}
+        
+      # PUSH TAGS IF IT IS A RELEASE
+      - name: Push tag if release
+        if: inputs.dev == false
+        run: git push && git push --tags
       
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: 2.0.24
+          tag_name: ${{env.TAG_NAME}}
           generate_release_notes: true
-          files: ./
+          files: ast-results-${{env.TAG_NAME}}.vsix
+          prerelease: ${{ inputs.dev }}
       
       #- name: Publish
       #  env:
