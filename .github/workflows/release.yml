@@ -114,11 +114,9 @@ jobs:
       - name: Package .vsix file
         run: |
           if [ ${{ inputs.dev }} == true ]; then
-            echo Run command = "vsce package ${{env.TAG_NAME}} --pre-release --no-git-tag-version"
-            vsce package ${{env.TAG_NAME}} --pre-release --no-git-tag-version
+            vsce package --pre-release
           else
-            echo Run command = "vsce package ${{env.TAG_NAME}}"
-            vsce package ${{env.TAG_NAME}}
+            vsce package
           fi
         
       # PUSH TAGS IF IT IS A RELEASE
