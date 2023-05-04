@@ -86,7 +86,7 @@ jobs:
         with:
           tag_name: 2.0.24
           generate_release_notes: true
-          files: ast-results-2.0.24.vsix
+          files: fork-ast-results-2.0.24.vsix
       
       #- name: Publish
       #  env:
