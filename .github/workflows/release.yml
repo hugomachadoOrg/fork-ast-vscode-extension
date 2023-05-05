@@ -36,7 +36,7 @@ jobs:
   delete:
     uses: hugomachadoOrg/fork-ast-vscode-extension/.github/workflows/delete-dev-releases.yml@main
     with:
-      tag: ${{ inputs.jsTag }}
+      tag: ${{ inputs.vscodeTag }}
     secrets: inherit
     if: inputs.dev == true
   release:
