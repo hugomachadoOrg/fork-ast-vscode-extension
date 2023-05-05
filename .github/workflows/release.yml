@@ -134,13 +134,13 @@ jobs:
       #    draft: false
       #    prerelease: ${{ inputs.dev }}
       
-      - name: Read package.json
-        id: package
-        uses: juliangruber/read-file-action@v1
-        with:
-          path: ./package.json
-      - name: Echo package.json
-        run: echo "${{ steps.package.outputs.content }}"
+      #- name: Read package.json
+      #  id: package
+      #  uses: juliangruber/read-file-action@v1
+      #  with:
+      #    path: ./package.json
+      #- name: Echo package.json
+      #  run: echo "${{ steps.package.outputs.content }}"
       
       - name: Create Release
         uses: softprops/action-gh-release@v1
