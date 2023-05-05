@@ -73,7 +73,7 @@ jobs:
           
           echo "Nightly version = " ${JS_VERSION_NAME}
           
-          FIXED_VERSION="$JS_VERSION_NAME" | tr -d '"'
+          FIXED_VERSION=echo "$JS_VERSION_NAME" | tr -d '"'
           
           echo VERSION NAME = ${FIXED_VERSION}
           
