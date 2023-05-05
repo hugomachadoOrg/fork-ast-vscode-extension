@@ -73,12 +73,12 @@ jobs:
           
           echo "Nightly version = " ${JS_VERSION_NAME}
           
-          echo "$JS_VERSION_NAME" | tr -d '"'
+          FIXED_VERSION="$JS_VERSION_NAME" | tr -d '"'
           
-          echo VERSION NAME = ${JS_VERSION_NAME}
+          echo VERSION NAME = ${FIXED_VERSION}
           
           if [ ${JS_VERSION_NAME} != '' ]; then
-            npm install @checkmarxdev/ast-cli-javascript-wrapper@"$JS_VERSION_NAME" | tr -d '"'
+            npm install @checkmarxdev/ast-cli-javascript-wrapper@${FIXED_VERSION}
           else
             echo "JS wrapper with version ${JS_VERSION_NAME} not found"
           fi
