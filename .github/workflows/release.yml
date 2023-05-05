@@ -120,7 +120,7 @@ jobs:
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: ./
+          file: fork-ast-results-${{env.VSIX_TAG_NAME}}.vsix
           asset_name: mything
           tag: ${{env.TAG_NAME}}
           overwrite: true
