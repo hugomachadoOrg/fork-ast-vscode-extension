@@ -125,9 +125,7 @@ jobs:
           
           # Pick one of:
           # 3. multiple names/globs, one per line
-          assets: |
-            *.zip
-            *.tar.gz
+          assets: '*.zip'
          
       #- name: Upload source with changes to workflow run
       #  if: inputs.dev == true
