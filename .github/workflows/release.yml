@@ -115,6 +115,13 @@ jobs:
           generate_release_notes: true
           files: fork-ast-results-${{env.VSIX_TAG_NAME}}.vsix
           prerelease: ${{ inputs.dev }}
+          
+      - uses: actions/upload-artifact@v3
+        with:
+          name: my-artifact
+          path: |
+            ./
+            !node_modules
 
       #- name: Publish
       #  env:
