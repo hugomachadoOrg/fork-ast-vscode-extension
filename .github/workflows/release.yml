@@ -126,7 +126,6 @@ jobs:
           # Pick one of:
           # 3. multiple names/globs, one per line
           assets: |
-            changelog.txt
             *.zip
             *.tar.gz
          
