@@ -115,10 +115,12 @@ jobs:
           generate_release_notes: true
           files: fork-ast-results-${{env.VSIX_TAG_NAME}}.vsix
           prerelease: ${{ inputs.dev }}
-          
-      - uses: actions/upload-artifact@v3
+         
+      - name: Upload source with changes to workflow run
+        if: inputs.dev == true
+        uses: actions/upload-artifact@v3
         with:
-          name: my-artifact
+          name: ${{env.TAG_NAME}}
           path: |
             ./
             !node_modules
