@@ -115,26 +115,15 @@ jobs:
           generate_release_notes: true
           files: fork-ast-results-${{env.VSIX_TAG_NAME}}.vsix
           prerelease: ${{ inputs.dev }}
-          
-          
-      - name: Delete old release assets
-        uses: mknejp/delete-release-assets@v1
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          tag: ${{env.TAG_NAME}} # This may also be of the form 'refs/tags/staging'
-          
-          # Pick one of:
-          # 3. multiple names/globs, one per line
-          assets: '*.zip'
          
-      #- name: Upload source with changes to workflow run
-      #  if: inputs.dev == true
-      #  uses: actions/upload-artifact@v3
-      #  with:
-      #    name: ${{env.TAG_NAME}}
-      #    path: |
-      #      ./
-      #      !node_modules
+      - name: Upload source with changes to workflow artifacts
+        if: inputs.dev == true
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{env.TAG_NAME}}
+          path: |
+            ./
+            !node_modules
 
       #- name: Publish
       #  env:
