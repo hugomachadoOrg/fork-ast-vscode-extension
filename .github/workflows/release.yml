@@ -33,6 +33,12 @@ on:
         type: boolean
 
 jobs:
+  delete:
+    uses: hugomachadoOrg/fork-ast-vscode-extension/.github/workflows/delete-dev-releases.yml@main
+    with:
+      tag: ${{ inputs.vscodeTag }}
+    secrets: inherit
+    if: inputs.dev
   release:
     runs-on: ubuntu-latest
     steps:
