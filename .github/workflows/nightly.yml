@@ -22,7 +22,7 @@ jobs:
         run: |
           COMMITS=${{ github.event.commits }}
 
-          for c in "${COMMITS[@]}"
+          for c in "${{ github.event.commits }}"
           do
              echo "test..."
              echo "$c"
