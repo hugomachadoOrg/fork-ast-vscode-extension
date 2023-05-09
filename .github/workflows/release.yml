@@ -18,6 +18,11 @@ on:
         required: false
         default: true
         type: boolean
+      publish:
+        description: 'Publish to marketplace'
+        required: false
+        default: true
+        type: boolean
   workflow_dispatch:
     inputs:
       jsTag:
@@ -30,6 +35,11 @@ on:
         description: 'Is dev build'
         required: false
         default: true
+        type: boolean
+      publish:
+        description: 'Publish to marketplace'
+        required: false
+        default: false
         type: boolean
 
 jobs:
