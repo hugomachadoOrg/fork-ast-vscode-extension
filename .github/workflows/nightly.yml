@@ -26,6 +26,6 @@ jobs:
           
           for i in "${COMMITS[@]}"
           do
-              echo $i
+              echo $i.author.name
           done
      
