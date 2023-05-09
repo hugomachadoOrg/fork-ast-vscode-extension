@@ -20,7 +20,7 @@ jobs:
         run: echo "$GITHUB_CONTEXT"
       - name: Get commits
         run: |
-          COMMITS=(${{github.event.commits}})
+          COMMITS=${{ github.event.commits }}
 
           for c in "${COMMITS[@]}"
           do
