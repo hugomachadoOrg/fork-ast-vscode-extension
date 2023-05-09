@@ -21,6 +21,8 @@ jobs:
       - name: Get commits
         run: |
           COMMITS=${{ github.event.commits }}
+          
+          echo Length =  ${#COMMITS[@]}
 
           for c in "${{ github.event.commits }}"
           do
