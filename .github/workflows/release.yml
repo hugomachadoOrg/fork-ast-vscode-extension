@@ -68,7 +68,7 @@ jobs:
           if [ ${{ inputs.dev }} == true ]; then
             echo "TAG_NAME=$(npm version prerelease --preid=${{ inputs.vscodeTag }} --no-git-tag-version --allow-same-version)" >> $GITHUB_ENV
           else
-            echo "TAG_NAME=$(npm version patch)" >> $GITHUB_ENV
+            echo "TAG_NAME=$(npm version minor)" >> $GITHUB_ENV
           fi
           
       - name: Install dependencies
