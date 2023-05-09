@@ -39,7 +39,7 @@ on:
       publish:
         description: 'Publish to marketplace'
         required: false
-        default: ${{ inputs.dev }}
+        default: false
         type: boolean
 
 jobs:
