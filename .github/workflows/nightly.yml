@@ -19,5 +19,9 @@ jobs:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
       - name: Get commits
-        run: echo '${{ toJSON(github.event.commits) }}' | jq ".[0].author"
+        run: |
+          for i in "${toJson(github.event.commits)[@]}"
+          do
+              echo $i
+          done
      
