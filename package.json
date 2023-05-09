@@ -829,7 +829,7 @@
     "test": "npm run compile && extest setup-and-run './out/test/**/*test.js' -c 1.71.0  -i -r ."
   },
   "devDependencies": {
-    "@types/chai": "4.3.3",
+    "@types/chai": "4.3.2",
     "@types/mocha": "10.0.1",
     "@types/node": "^18.16.3",
     "@types/vscode": "^1.78.0",
