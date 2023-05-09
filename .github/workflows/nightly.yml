@@ -23,6 +23,8 @@ jobs:
         
           COMMITS=(${{toJson(github.event.commits)}})
           
+          echo ${{toJson(github.event.commits)}} | jq '.[]|select(.author.name | contains("hmmachadocx"))')
+          
           
           for i in "${COMMITS[@]}"
           do
