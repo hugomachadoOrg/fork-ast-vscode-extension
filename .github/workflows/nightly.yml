@@ -26,7 +26,7 @@ jobs:
           
           echo Message = ${{ github.event.commits[0].message }}
 
-          for c in "${{ github.event.commits }}"
+          for c in "$COMMITS[@]"
           do
              echo "test..."
              echo "$c.message"
