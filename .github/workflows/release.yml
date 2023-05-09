@@ -131,6 +131,7 @@ jobs:
         if: env.MARKET_TOKEN != null
         run: | 
           if [ ${{ inputs.dev }} == true ]; then
+            node .github/scripts/updateEdgeVersion.js
             vsce publish --pre-release -p ${{ env.MARKET_TOKEN }}
           else
             vsce publish -p ${{ env.MARKET_TOKEN }}
