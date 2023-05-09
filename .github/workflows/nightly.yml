@@ -11,6 +11,9 @@ on:
       - main
 
 jobs:
-  nightly:
-    uses: hugomachadoOrg/fork-ast-vscode-extension/.github/workflows/release.yml@main
-    secrets: inherit
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Log info"
+        run: echo ${{ github }}
+  
