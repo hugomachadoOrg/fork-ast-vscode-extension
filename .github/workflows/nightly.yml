@@ -29,6 +29,6 @@ jobs:
           for c in "${{ github.event.commits }}"
           do
              echo "test..."
-             echo "$c"
+             echo "$c.message"
           done
      
