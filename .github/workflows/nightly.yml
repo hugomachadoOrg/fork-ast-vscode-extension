@@ -23,6 +23,8 @@ jobs:
           COMMITS=${{ github.event.commits }}
           
           echo Length =  ${#COMMITS[@]}
+          
+          echo Message = ${{ github.event.commits[0].message }}
 
           for c in "${{ github.event.commits }}"
           do
