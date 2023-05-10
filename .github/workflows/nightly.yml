@@ -31,8 +31,9 @@ jobs:
             return false;
             
       - name: Contains dependabot
-        run: | 
-          echo '${{ toJSON(github.event.commits) }}'
+        run: |
+          echo contains(github.event.commits.*.author.name, 'aaa')
+          #echo '${{ toJSON(github.event.commits) }}'
           #echo '${{ toJSON(github.event.commits) }}' | jq ".[0].author"
           #myJson=${{ toJSON(github.event.commits) }}
           #echo $myJson
