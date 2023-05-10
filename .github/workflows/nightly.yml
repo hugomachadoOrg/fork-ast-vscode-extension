@@ -30,11 +30,11 @@ jobs:
             
             return false;
             
-      - name: Contains dependabot
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: |
-          echo "$GITHUB_CONTEXT"
+      #- name: Contains dependabot
+      #  env:
+      #    GITHUB_CONTEXT: ${{ toJson(github) }}
+      #  run: |
+      #    echo "$GITHUB_CONTEXT"
           #echo "RUNNED !!!"
           #echo '${{ toJSON(github.event.commits) }}'
           #echo '${{ toJSON(github.event.commits) }}' | jq ".[0].author"
@@ -42,6 +42,16 @@ jobs:
           #echo $myJson
           #aaa=$( echo "${{ toJSON(github.event.commits) }}" | jq '.event.commits[].author | any(. == "hmmachadocx")' )
           #echo '${{ toJSON(github.event.commits) }}' | jq '.event.commits[].author | any(. == "hmmachadocx")'
+          
+  printJob:    
+    name: Print event
+    runs-on: ubuntu-latest
+    steps:
+    - name: Dump GitHub context
+      env:
+        GITHUB_CONTEXT: ${{ toJson(github) }}
+      run: |
+        echo "$GITHUB_CONTEXT"
           
   #nightly:
   #  needs: check-dependabot-commits
