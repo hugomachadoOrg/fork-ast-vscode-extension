@@ -112,7 +112,7 @@ jobs:
           
           TAG_NAME=${{env.TAG_NAME}}
           echo TAG NAME = ${TAG_NAME}
-          echo "VSIX_TAG_NAME=${cat package.json | jq .version}" >> $GITHUB_ENV
+          echo "VSIX_TAG_NAME=$(cat package.json | jq .version | cut -d'"' -f 2)" >> $GITHUB_ENV
         
       # PUSH TAGS IF IT IS A RELEASE
       - name: Push tag if release
