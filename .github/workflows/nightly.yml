@@ -24,8 +24,5 @@ jobs:
           C=${{toJson(github.event.commits)}}
           echo $C
           
-          #for i in "${COMMITS[@]}"
-          #do
-          #    echo $i['author']
-          #done
+          
      
