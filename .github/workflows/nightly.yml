@@ -21,7 +21,7 @@ jobs:
       id: check-dependabot
       env:
         GITHUB_CONTEXT: ${{ toJson(github) }}
-      run: echo "dependabotExists=$(echo $GITHUB_CONTEXT | jq '.event.commits[].author | any(. == "dependabot[bot]")')" >> $GITHUB_OUTPUT
+      run: echo "dependabotExists=$(echo $GITHUB_CONTEXT | jq '.event.commits[].author | any(. == "dependabot[bot]")')" >> $GITHUB_ENV
       
   call-release:
     runs-on: ubuntu-latest
@@ -38,6 +38,13 @@ jobs:
           echo ${{ needs.check-dependabot-commits.outputs.isDependabot }} == 'false'
           echo ${{ needs.check-dependabot-commits.outputs.isDependabot }} == 'true'
           echo ${{needs.check-dependabot-commits.outputs.isDependabot}}
+          echo "==========================="
+          
+          echo ${{env.dependabotExists}}
+          echo ${{env.dependabotExists}} == true
+          echo ${{env.dependabotExists}} == 'true'
+          echo ${{env.dependabotExists}} == false
+          echo ${{env.dependabotExists}} == 'false'
           
           
   call-release-test:
