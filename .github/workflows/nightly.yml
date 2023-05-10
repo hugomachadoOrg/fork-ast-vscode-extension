@@ -73,7 +73,7 @@ jobs:
     needs: check-dependabot-commits
     steps:
       - name: cenas
-        if: ${{needs.check-dependabot-commits.outputs.isDependabot}} == 'false'
+        if: ${{needs.check-dependabot-commits.outputs.isDependabot}} == 'true'
         run: | 
           echo "RUN!!!"
           echo ${{needs.check-dependabot-commits.outputs.isDependabot}}
