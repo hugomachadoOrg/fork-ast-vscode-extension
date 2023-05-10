@@ -11,38 +11,6 @@ on:
       - main
 
 jobs:
-  #check-dependabot-commits-a:
-  #  outputs:
-  #    isDependabot: ${{ steps.set-result.outputs.result }}
-  #  runs-on: ubuntu-latest
-  #  steps:
-  #    - name: Check if dependabot commits exist
-  #      uses: actions/github-script@v6
-  #      id: set-result
-  #      with:
-  #        script: |
-  #          const commits = ${{ toJSON(github.event.commits) }}
-  #          for (const commit of commits) {
-  #            if(commit.author.name == 'dependabot[bot]') {
-  #              return true;
-  #            }
-  #          }
-            
-  #          return false;
-            
-      #- name: Contains dependabot
-      #  env:
-      #    GITHUB_CONTEXT: ${{ toJson(github) }}
-      #  run: |
-      #    echo "$GITHUB_CONTEXT"
-          #echo "RUNNED !!!"
-          #echo '${{ toJSON(github.event.commits) }}'
-          #echo '${{ toJSON(github.event.commits) }}' | jq ".[0].author"
-          #myJson=${{ toJSON(github.event.commits) }}
-          #echo $myJson
-          #aaa=$( echo "${{ toJSON(github.event.commits) }}" | jq '.event.commits[].author | any(. == "hmmachadocx")' )
-          #echo '${{ toJSON(github.event.commits) }}' | jq '.event.commits[].author | any(. == "hmmachadocx")'
-          
   check-dependabot-commits:    
     name: Check if dependabot commits exist
     outputs:
@@ -53,13 +21,15 @@ jobs:
       id: check-dependabot
       env:
         GITHUB_CONTEXT: ${{ toJson(github) }}
-      run: echo "dependabotExists=$(echo $GITHUB_CONTEXT | jq '.event.commits[].author | any(. == "hmmachadocxaaa")')" >> $GITHUB_OUTPUT
+      run: echo "dependabotExists=$(echo $GITHUB_CONTEXT | jq '.event.commits[].author | any(. == "hmmachadocx")')" >> $GITHUB_OUTPUT
       
   call-release:
     runs-on: ubuntu-latest
     needs: check-dependabot-commits
     steps:
-      - run: echo ${{needs.check-dependabot-commits.outputs.isDependabot}}
+      - name: cenas
+        if: ${{needs.check-dependabot-commits.outputs.isDependabot}}
+      - run: echo "RUN!!!"
           
   #nightly:
   #  needs: check-dependabot-commits
