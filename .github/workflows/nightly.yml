@@ -33,11 +33,11 @@ jobs:
           echo "RUN!!!"
           echo needs.check-dependabot-commits.outputs.isDependabot == false
           echo needs.check-dependabot-commits.outputs.isDependabot == true
-          echo ${{ needs.check-dependabot-commits.outputs.isDependabot }} == false
-          echo ${{ needs.check-dependabot-commits.outputs.isDependabot }} == true
-          echo ${{ needs.check-dependabot-commits.outputs.isDependabot }} == 'false'
-          echo ${{ needs.check-dependabot-commits.outputs.isDependabot }} == 'true'
-          echo ${{needs.check-dependabot-commits.outputs.isDependabot}}
+          echo ${{ boolean needs.check-dependabot-commits.outputs.isDependabot }} == false
+          echo ${{ boolean needs.check-dependabot-commits.outputs.isDependabot }} == true
+          echo ${{ boolean needs.check-dependabot-commits.outputs.isDependabot }} == 'false'
+          echo ${{ boolean needs.check-dependabot-commits.outputs.isDependabot }} == 'true'
+          echo ${{ boolean needs.check-dependabot-commits.outputs.isDependabot}}
           echo "==========================="
           
           echo env.dependabotExists
