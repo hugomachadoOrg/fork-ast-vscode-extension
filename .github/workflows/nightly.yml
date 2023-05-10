@@ -26,10 +26,12 @@ jobs:
           script: |
             const commits = ${{ toJSON(github.event.commits) }}
             for (const commit of commits) {
-              if(commit.author.name == 'hmmachadocx') {
-                return true
+              if(commit.author.name == 'hmmachadocxx') {
+                return true;
               }
             }
+            
+            return false;
             
       - name: Get result
         run: echo "THE RESULT IS = ${{steps.set-result.outputs.result}}"
