@@ -55,6 +55,9 @@ jobs:
         GITHUB_CONTEXT: ${{ toJson(github) }}
       run: |
         MY_VAR=$(echo $GITHUB_CONTEXT | jq '.event.commits[].author | any(. == "hmmachadocx")')
+        echo "dependabotExists=$MY_VAR" >> $GITHUB_OUTPUT
+        
+        
       
   call-release:
     runs-on: ubuntu-latest
