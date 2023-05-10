@@ -31,7 +31,7 @@ jobs:
             return false;
             
       - name: Contains dependabot
-        if: ${{ contains(github.event.commits.*.author.name, 'hmmachadocx') }}
+        if: ${{ contains(github.event.commits.*.author.name, 'aaa') }}
         run: |
           echo "RUNNED !!!"
           #echo '${{ toJSON(github.event.commits) }}'
