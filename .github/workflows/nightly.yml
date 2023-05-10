@@ -20,7 +20,7 @@ jobs:
         run: echo "$GITHUB_CONTEXT"
         
       - name: Get commits
-        run: echo github.event.commits
+        run: echo ${{ github.event.commits }}
           
           
      
