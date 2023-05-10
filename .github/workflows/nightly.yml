@@ -45,7 +45,7 @@ jobs:
           
   printJob:    
     name: Print event
-    if: (env.GITHUB_CONTEXT | jq '.event.commits[].author | any(. == "hmmachadocx")')
+    if: (${{ env.GITHUB_CONTEXT }} | jq '.event.commits[].author | any(. == "hmmachadocx")')
     runs-on: ubuntu-latest
     steps:
     - name: Dump GitHub context
