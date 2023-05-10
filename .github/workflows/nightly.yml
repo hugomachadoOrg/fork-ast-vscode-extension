@@ -11,24 +11,24 @@ on:
       - main
 
 jobs:
-  check-dependabot-commits:
-    outputs:
-      isDependabot: ${{ steps.set-result.outputs.result }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check if dependabot commits exist
-        uses: actions/github-script@v6
-        id: set-result
-        with:
-          script: |
-            const commits = ${{ toJSON(github.event.commits) }}
-            for (const commit of commits) {
-              if(commit.author.name == 'dependabot[bot]') {
-                return true;
-              }
-            }
+  #check-dependabot-commits-a:
+  #  outputs:
+  #    isDependabot: ${{ steps.set-result.outputs.result }}
+  #  runs-on: ubuntu-latest
+  #  steps:
+  #    - name: Check if dependabot commits exist
+  #      uses: actions/github-script@v6
+  #      id: set-result
+  #      with:
+  #        script: |
+  #          const commits = ${{ toJSON(github.event.commits) }}
+  #          for (const commit of commits) {
+  #            if(commit.author.name == 'dependabot[bot]') {
+  #              return true;
+  #            }
+  #          }
             
-            return false;
+  #          return false;
             
       #- name: Contains dependabot
       #  env:
@@ -43,16 +43,23 @@ jobs:
           #aaa=$( echo "${{ toJSON(github.event.commits) }}" | jq '.event.commits[].author | any(. == "hmmachadocx")' )
           #echo '${{ toJSON(github.event.commits) }}' | jq '.event.commits[].author | any(. == "hmmachadocx")'
           
-  printJob:    
-    name: Print event
-    if: (${{ env.GITHUB_CONTEXT }} | jq '.event.commits[].author | any(. == "hmmachadocx")')
+  check-dependabot-commits:    
+    name: Check if dependabot commits exist
+    outputs:
+      isDependabot: ${{ steps.check-dependabot.outputs.dependabotExists }}
     runs-on: ubuntu-latest
     steps:
-    - name: Dump GitHub context
+    - name: Check if dependabot commits exist
+      id: check-dependabot
       env:
         GITHUB_CONTEXT: ${{ toJson(github) }}
-      run: |
-        echo "RUN !!!!'
+      run: echo "dependabotExists=${{ env.GITHUB_CONTEXT }} | jq '.event.commits[].author | any(. == "hmmachadocx")'" >> $GITHUB_OUTPUT
+      
+  call-release:
+    runs-on: ubuntu-latest
+    needs: check-dependabot-commits
+    steps:
+      - run: echo ${{needs.check-dependabot-commits.outputs.isDependabot}}
           
   #nightly:
   #  needs: check-dependabot-commits
