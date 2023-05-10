@@ -29,12 +29,15 @@ jobs:
             }
             
             return false;
+            
+      - name: Contains dependabot
+        run: echo '${{ toJSON(github.event.commits) }}' | jq ".[0].author"
           
-  nightly:
-    needs: check-dependabot-commits
-    if: ${{needs.check-dependabot-commits.outputs.isDependabot}} == 'false'
-    uses: hugomachadoOrg/fork-ast-vscode-extension/.github/workflows/release.yml@main
-    secrets: inherit
+  #nightly:
+  #  needs: check-dependabot-commits
+  #  if: ${{needs.check-dependabot-commits.outputs.isDependabot}} == 'false'
+  #  uses: hugomachadoOrg/fork-ast-vscode-extension/.github/workflows/release.yml@main
+  #  secrets: inherit
  
           
           
