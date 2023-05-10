@@ -32,7 +32,9 @@ jobs:
             
       - name: Contains dependabot
         run: | 
-          aaa=$( echo "${{ toJSON(github.event.commits) }}" | jq '.event.commits[].author | any(. == "hmmachadocx")' )
+          myJson=${{ toJSON(github.event.commits) }}
+          echo $myJson
+          #aaa=$( echo "${{ toJSON(github.event.commits) }}" | jq '.event.commits[].author | any(. == "hmmachadocx")' )
           #cat '${{ toJSON(github.event.commits) }}' | jq '.event.commits[].author | any(. == "hmmachadocx")'
           
   #nightly:
