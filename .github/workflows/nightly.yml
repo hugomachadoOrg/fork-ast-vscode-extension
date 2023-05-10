@@ -54,8 +54,8 @@ jobs:
       env:
         GITHUB_CONTEXT: ${{ toJson(github) }}
       run: |
-        MY_VAR=$(echo $GITHUB_CONTEXT | jq '.event.commits[].author | any(. == "hmmachadocx")')
-        echo "dependabotExists=$MY_VAR" >> $GITHUB_OUTPUT
+        #MY_VAR=$(echo $GITHUB_CONTEXT | jq '.event.commits[].author | any(. == "hmmachadocx")')
+        echo "dependabotExists=$(echo $GITHUB_CONTEXT | jq '.event.commits[].author | any(. == "hmmachadocx")')" >> $GITHUB_OUTPUT
         
         
       
