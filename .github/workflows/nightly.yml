@@ -31,7 +31,7 @@ jobs:
             return false;
             
       - name: Contains dependabot
-        run: cat '${{ toJSON(github.event.commits) }}' | jq ".event.commits[]"
+        run: cat '${{ toJSON(github.event.commits) }}' | jq ".event.commits[] | any(.distinct == true)"
           
   #nightly:
   #  needs: check-dependabot-commits
