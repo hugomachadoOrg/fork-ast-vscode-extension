@@ -11,7 +11,7 @@ on:
       - main
 
 jobs:
-  test:
+  nightly:
     runs-on: ubuntu-latest
     steps:
       - name: Check if dependabot commits exist
