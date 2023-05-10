@@ -23,7 +23,6 @@ jobs:
         uses: actions/github-script@v6
         id: set-result
         with:
-          result-encoding: boolean
           script: |
             const commits = ${{ toJSON(github.event.commits) }}
             for (const commit of commits) {
@@ -38,7 +37,7 @@ jobs:
         run: echo "THE RESULT IS = ${{steps.set-result.outputs.result}}"
         
       - name: Call release
-        if: steps.set-result.outputs.result == true
+        if: steps.set-result.outputs.result == 'true'
         run: echo "The release workflow will be called..."
           
           
