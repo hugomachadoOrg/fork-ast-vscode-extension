@@ -45,13 +45,14 @@ jobs:
           
   printJob:    
     name: Print event
+    if: ("$GITHUB_CONTEXT" | jq '.event.commits[].author | any(. == "hmmachadocx")')
     runs-on: ubuntu-latest
     steps:
     - name: Dump GitHub context
       env:
         GITHUB_CONTEXT: ${{ toJson(github) }}
       run: |
-        echo "$GITHUB_CONTEXT" | jq '.event.commits[].author | any(. == "dependabot[bot]")'
+        echo "RUN !!!!'
           
   #nightly:
   #  needs: check-dependabot-commits
