@@ -104,7 +104,7 @@ jobs:
       - name: Package .vsix file
         run: |
           if [ ${{ inputs.dev }} == true ]; then
-            #node .github/scripts/updateDevVersion.js
+            node .github/scripts/updateDevVersion.js
             vsce package --pre-release
           else
             vsce package
