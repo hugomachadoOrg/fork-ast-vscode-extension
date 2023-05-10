@@ -53,7 +53,7 @@ jobs:
       id: check-dependabot
       env:
         GITHUB_CONTEXT: ${{ toJson(github) }}
-      run: echo "dependabotExists=(echo ${{ env.GITHUB_CONTEXT }} | jq '.event.commits[].author | any(. == "hmmachadocx")') >> $GITHUB_OUTPUT
+      run: echo "dependabotExists=(${{ env.GITHUB_CONTEXT }} | jq '.event.commits[].author | any(. == "hmmachadocx")') >> $GITHUB_OUTPUT
       
   call-release:
     runs-on: ubuntu-latest
