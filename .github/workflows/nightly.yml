@@ -20,7 +20,6 @@ jobs:
         run: echo "$GITHUB_CONTEXT"
       - name: Get commits
         run: |
-
           C=${{toJson(github.event.commits)}}
           echo $C
           
