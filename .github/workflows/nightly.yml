@@ -20,10 +20,13 @@ jobs:
         run: echo "$GITHUB_CONTEXT"
         
       - name: Get commits
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: |
-          const commits = JSON.parse(process.env.COMMITS);
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const commits = ${{ toJSON(github.event.commits) }}
+            for (const commit of commits) {
+              console.log(commit);
+            }
           
           
      
