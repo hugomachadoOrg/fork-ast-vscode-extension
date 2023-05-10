@@ -20,20 +20,9 @@ jobs:
         run: echo "$GITHUB_CONTEXT"
       - name: Get commits
         run: |
-          A=${{ github.event.commits }}
-          echo $A
-          
-          echo ====================================================
-        
-          B=(${{ github.event.commits }})
-          echo $B
-          
-          echo ====================================================
-          
+
           C=${{toJson(github.event.commits)}}
           echo $C
-          
-          
           
           #for i in "${COMMITS[@]}"
           #do
