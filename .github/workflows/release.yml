@@ -104,7 +104,7 @@ jobs:
       - name: Package .vsix file
         run: |
           if [ ${{ inputs.dev }} == true ]; then
-            node .github/scripts/updateDevVersion.js
+            #node .github/scripts/updateDevVersion.js
             vsce package --pre-release
           else
             vsce package
@@ -139,7 +139,7 @@ jobs:
       - name: Publish
         env:
           MARKET_TOKEN: ${{ secrets.MARKET_TOKEN }}
-        if: env.MARKET_TOKEN != null
+        if: env.MARKET_TOKEN != null && (inputs.dev == false || (inputs.dev == true && inputs.publish == true))
         run: | 
           if [ ${{ inputs.dev }} == true ]; then
             vsce publish --pre-release -p ${{ env.MARKET_TOKEN }}
