@@ -23,7 +23,7 @@ jobs:
           script: |
             const commits = ${{ toJSON(github.event.commits) }}
             for (const commit of commits) {
-              if(commit.author.name == 'hmmachadocx') {
+              if(commit.author.name == 'dependabot[bot]') {
                 return true;
               }
             }
@@ -31,12 +31,10 @@ jobs:
             return false;
           
   nightly:
-    runs-on: ubuntu-latest
     needs: check-dependabot-commits
-    steps:
-      - name: Echo cenas
-        run: echo ${{needs.check-dependabot-commits.outputs.isDependabot}}
-
+    if: ${{needs.check-dependabot-commits.outputs.isDependabot}} == 'false'
+    uses: hugomachadoOrg/fork-ast-vscode-extension/.github/workflows/release.yml@main
+    secrets: inherit
  
           
           
