@@ -21,14 +21,18 @@ jobs:
         
       - name: Get commits
         uses: actions/github-script@v6
+        id: set-result
         with:
           script: |
             const commits = ${{ toJSON(github.event.commits) }}
             for (const commit of commits) {
               if(commit.author.name == 'hmmachadocx') {
-                echo "FOUND!!!!"
+                return true
               }
             }
+            
+      - name: Get result
+        run: echo "THE RESULT IS = ${{steps.set-result.outputs.result}}"
           
           
      
