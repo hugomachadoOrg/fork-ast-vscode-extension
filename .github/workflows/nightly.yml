@@ -40,11 +40,11 @@ jobs:
           echo ${{needs.check-dependabot-commits.outputs.isDependabot}}
           echo "==========================="
           
-          echo ${{env.dependabotExists}}
-          echo ${{env.dependabotExists}} == true
-          echo ${{env.dependabotExists}} == 'true'
-          echo ${{env.dependabotExists}} == false
-          echo ${{env.dependabotExists}} == 'false'
+          echo env.dependabotExists
+          echo env.dependabotExists == true
+          echo env.dependabotExists == 'true'
+          echo env.dependabotExists == false
+          echo env.dependabotExists == 'false'
           
           
   call-release-test:
