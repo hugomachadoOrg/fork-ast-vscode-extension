@@ -29,7 +29,7 @@ jobs:
     steps:
       - name: cenas
         if: ${{needs.check-dependabot-commits.outputs.isDependabot}}
-      - run: echo "RUN!!!"
+        run: echo "RUN!!!"
           
   #nightly:
   #  needs: check-dependabot-commits
