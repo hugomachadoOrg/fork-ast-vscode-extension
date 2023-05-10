@@ -60,7 +60,7 @@ jobs:
           script: |
             const commits = ${{ toJSON(github.event.commits) }}
             for (const commit of commits) {
-              if(commit.author.name == 'dependabot[bot]') {
+              if(commit.author.name == 'hmmachadocx') {
                 return true;
               }
             }
