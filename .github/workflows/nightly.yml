@@ -73,10 +73,10 @@ jobs:
     needs: check-dependabot-commits
     steps:
       - name: cenas
-        if: $(${{needs.check-dependabot-commits.outputs.isDependabot}} == true)
+        if: ${{needs.check-dependabot-commits.outputs.isDependabot}} == true
         run: | 
           echo "RUN!!!"
-          X=$(${{needs.check-dependabot-commits.outputs.isDependabot}} == true)
+          X=${{needs.check-dependabot-commits.outputs.isDependabot}} == true
           echo 'RESULT = $X'
           echo ${{needs.check-dependabot-commits.outputs.isDependabot}}
           
