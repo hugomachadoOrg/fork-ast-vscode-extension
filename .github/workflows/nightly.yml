@@ -20,14 +20,23 @@ jobs:
         run: echo "$GITHUB_CONTEXT"
       - name: Get commits
         run: |
+          A=${{ github.event.commits }}
+          echo $A
+          
+          echo ====================================================
         
-          COMMITS=(${{toJson(github.event.commits)}})
+          B=(${{ github.event.commits }})
+          echo $B
           
-          echo ${{toJson(github.event.commits)}} | jq '.[]|select(.author.name | contains("hmmachadocx"))')
+          echo ====================================================
+          
+          C=${{toJson(github.event.commits)}}
+          echo $C
           
           
-          for i in "${COMMITS[@]}"
-          do
-              echo $i['author']
-          done
+          
+          #for i in "${COMMITS[@]}"
+          #do
+          #    echo $i['author']
+          #done
      
