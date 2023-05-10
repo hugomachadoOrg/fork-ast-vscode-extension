@@ -25,11 +25,9 @@ jobs:
           script: |
             const commits = ${{ toJSON(github.event.commits) }}
             for (const commit of commits) {
-              if [commit.author.name == 'hmmachadocx' ]; then
-                echo "YEY!"
-              else
-                echo "AAAAA!"
-              fi
+              if(commit.author.name == 'hmmachadocx') {
+                echo "FOUND!!!!"
+              }
             }
           
           
