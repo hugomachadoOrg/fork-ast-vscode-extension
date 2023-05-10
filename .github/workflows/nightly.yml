@@ -76,7 +76,7 @@ jobs:
         if: true
         run: | 
           echo "RUN!!!"
-          X=$(needs.check-dependabot-commits.outputs.isDependabot == true)
+          X=$(${needs.check-dependabot-commits.outputs.isDependabot} == true)
           echo 'RESULT = $X'
           echo ${{needs.check-dependabot-commits.outputs.isDependabot}}
           
