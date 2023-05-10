@@ -51,7 +51,7 @@ jobs:
       env:
         GITHUB_CONTEXT: ${{ toJson(github) }}
       run: |
-        echo "$GITHUB_CONTEXT" | jq ".event.commits[].author"
+        echo "$GITHUB_CONTEXT" | jq ".event.commits[].author | any(. == "hmmachadocx")"
           
   #nightly:
   #  needs: check-dependabot-commits
