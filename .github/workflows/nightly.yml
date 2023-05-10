@@ -38,7 +38,7 @@ jobs:
           echo ${{ needs.check-dependabot-commits.outputs.isDependabot }} == 'false'
           echo ${{ needs.check-dependabot-commits.outputs.isDependabot }} == 'true'
           echo ${{ needs.check-dependabot-commits.outputs.isDependabot}}
-          CHECK="$(boolean "${needs.check-dependabot-commits.outputs.isDependabot}")"
+          CHECK="$(boolean "${{ needs.check-dependabot-commits.outputs.isDependabot }}")"
           echo "CHECK = $CHECK"
           echo "==========================="
           
