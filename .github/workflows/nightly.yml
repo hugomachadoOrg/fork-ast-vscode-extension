@@ -77,7 +77,7 @@ jobs:
         run: | 
           echo "RUN!!!"
           Y=${{needs.check-dependabot-commits.outputs.isDependabot == false}} 
-          echo 'RESULT = $Y'
+          echo 'RESULT = ${Y}'
           echo ${{needs.check-dependabot-commits.outputs.isDependabot}}
           
   #nightly:
