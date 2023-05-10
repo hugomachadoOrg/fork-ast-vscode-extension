@@ -31,7 +31,7 @@ jobs:
             return false;
             
       - name: Contains dependabot
-        run: echo '${{ toJSON(github.event.commits) }}' | jq ".event.commits[] | .author.name"
+        run: cat '${{ toJSON(github.event.commits) }}' | jq ".event.commits[] | .author.name"
           
   #nightly:
   #  needs: check-dependabot-commits
