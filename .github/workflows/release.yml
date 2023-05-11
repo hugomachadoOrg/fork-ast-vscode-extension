@@ -9,7 +9,7 @@ on:
         type: string
         default: nightly
       vscodeTag:
-        description: 'Tag name (ignored if not dev build)'
+        description: 'Tag name'
         required: false
         type: string
         default: nightly
@@ -81,9 +81,11 @@ jobs:
             echo "TAG_NAME=$(npm version minor)" >> $GITHUB_ENV
           fi
           
+      # INSTALL NPM DEPENDENCIES 
       - name: Install dependencies
         run: npm install
         
+      # GET AND INSTALL JS WRAPPER VERSION PROVIDED BY USER
       - name: Get and install JS Wrapper if provided by user
         if: inputs.dev == true && inputs.jsTag != ''
         run: |
@@ -98,9 +100,11 @@ jobs:
             echo "JS wrapper with version ${JS_VERSION_NAME} not found"
           fi
           
+      # INSTALL VSCE
       - name: Install VSCE
         run: npm install -g vsce
 
+      # PACKAGE PROJECT
       - name: Package .vsix file
         run: |
           if [ ${{ inputs.dev }} == true ]; then
@@ -110,10 +114,10 @@ jobs:
             vsce package
           fi
           
+      # CREATE GH RELEASE NAME
       - name: Handle GH Release name
         run: |
           VSIX_TAG_NAME=$(cat package.json | jq .version | cut -d'"' -f 2)
-          echo ${VSIX_TAG_NAME}
           echo "VSIX_TAG_NAME=$VSIX_TAG_NAME" >> $GITHUB_ENV
           
           if [ ${{ inputs.dev }} == true ]; then
@@ -127,6 +131,7 @@ jobs:
         if: inputs.dev == false
         run: git push && git push --tags
  
+      # CREATE GH RELEASE
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
@@ -136,6 +141,7 @@ jobs:
           files: fork-ast-results-${{env.VSIX_TAG_NAME}}.vsix
           prerelease: ${{ inputs.dev }}
 
+      # PUBLISH TO MARKETPLACE
       - name: Publish
         env:
           MARKET_TOKEN: ${{ secrets.MARKET_TOKEN }}
