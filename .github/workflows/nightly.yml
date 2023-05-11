@@ -21,70 +21,25 @@ jobs:
       id: check-dependabot
       env:
         GITHUB_CONTEXT: ${{ toJson(github) }}
-      run: echo "dependabotExists=$(echo $GITHUB_CONTEXT | jq '.event.commits[].author | any(. == "hmmachadocx")')" >> $GITHUB_OUTPUT
-      
-  #call-release:
+      run: echo "dependabotExists=$(echo $GITHUB_CONTEXT | jq '.event.commits[].author | any(. == "dependabot[bot]")')" >> $GITHUB_OUTPUT
+          
+  #call-release-test:
   #  runs-on: ubuntu-latest
   #  needs: check-dependabot-commits
   #  steps:
   #    - name: cenas
-  #      if: true
+  #      if: ${{needs.check-dependabot-commits.outputs.isDependabot == 'false'}} 
   #      run: | 
   #        echo "RUN!!!"
-  #        echo needs.check-dependabot-commits.outputs.isDependabot == false
-  #        echo needs.check-dependabot-commits.outputs.isDependabot == true
-  #        echo ${{ needs.check-dependabot-commits.outputs.isDependabot }} == false
-  #        echo ${{ needs.check-dependabot-commits.outputs.isDependabot }} == true
-  #        echo ${{ needs.check-dependabot-commits.outputs.isDependabot }} == 'false'
-  #        echo ${{ needs.check-dependabot-commits.outputs.isDependabot }} == 'true'
-  #        echo ${{ needs.check-dependabot-commits.outputs.isDependabot}}
-  #        CHECK="$(boolean "${{ needs.check-dependabot-commits.outputs.isDependabot }}")"
-  #        echo "CHECK = $CHECK"
-  #        echo "==========================="
+  #        Y=${{needs.check-dependabot-commits.outputs.isDependabot == 'false'}} 
+  #        echo RESULT = ${Y}
+  #        echo ${{needs.check-dependabot-commits.outputs.isDependabot}}
           
-  #        echo env.dependabotExists
-  #        echo env.dependabotExists == true
-  #        echo env.dependabotExists == 'true'
-  #        echo env.dependabotExists == false
-  #        echo env.dependabotExists == 'false'
-          
-  #check-dependabot-commits:
-  #  outputs:
-  #    isDependabot: ${{ steps.set-result.outputs.result }}
-  #  runs-on: ubuntu-latest
-  #  steps:
-  #    - name: Check if dependabot commits exist
-  #      uses: actions/github-script@v6
-  #      id: set-result
-  #      with:
-  #        script: |
-  #          const commits = ${{ toJSON(github.event.commits) }}
-  #          for (const commit of commits) {
-  #            if(commit.author.name == 'hmmachadocx') {
-  #              return true;
-  #            }
-  #          }
-            
-  #         return false;
-          
-          
-  call-release-test:
-    runs-on: ubuntu-latest
+  nightly:
     needs: check-dependabot-commits
-    steps:
-      - name: cenas
-        if: ${{needs.check-dependabot-commits.outputs.isDependabot == 'false'}} 
-        run: | 
-          echo "RUN!!!"
-          Y=${{needs.check-dependabot-commits.outputs.isDependabot == 'false'}} 
-          echo RESULT = ${Y}
-          echo ${{needs.check-dependabot-commits.outputs.isDependabot}}
-          
-  #nightly:
-  #  needs: check-dependabot-commits
-  #  if: ${{needs.check-dependabot-commits.outputs.isDependabot}} == 'false'
-  #  uses: hugomachadoOrg/fork-ast-vscode-extension/.github/workflows/release.yml@main
-  #  secrets: inherit
+    if: ${{needs.check-dependabot-commits.outputs.isDependabot == 'false'}}
+    uses: hugomachadoOrg/fork-ast-vscode-extension/.github/workflows/release.yml@main
+    secrets: inherit
  
           
           
