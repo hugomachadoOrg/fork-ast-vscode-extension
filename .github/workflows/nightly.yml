@@ -23,18 +23,6 @@ jobs:
         GITHUB_CONTEXT: ${{ toJson(github) }}
       run: echo "dependabotExists=$(echo $GITHUB_CONTEXT | jq '.event.commits[].author | any(. == "dependabot[bot]")')" >> $GITHUB_OUTPUT
           
-  #call-release-test:
-  #  runs-on: ubuntu-latest
-  #  needs: check-dependabot-commits
-  #  steps:
-  #    - name: cenas
-  #      if: ${{needs.check-dependabot-commits.outputs.isDependabot == 'false'}} 
-  #      run: | 
-  #        echo "RUN!!!"
-  #        Y=${{needs.check-dependabot-commits.outputs.isDependabot == 'false'}} 
-  #        echo RESULT = ${Y}
-  #        echo ${{needs.check-dependabot-commits.outputs.isDependabot}}
-          
   nightly:
     needs: check-dependabot-commits
     if: ${{needs.check-dependabot-commits.outputs.isDependabot == 'false'}}
